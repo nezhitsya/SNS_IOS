@@ -14,6 +14,7 @@
 		0B52DA1525DBA40000F48EFE /* SNS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0B52DA1325DBA40000F48EFE /* SNS.xcdatamodeld */; };
 		0B52DA1725DBA40100F48EFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B52DA1625DBA40100F48EFE /* Assets.xcassets */; };
 		0B52DA1A25DBA40100F48EFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B52DA1825DBA40100F48EFE /* LaunchScreen.storyboard */; };
+		0B74FA5F25DCA21C00D72DB9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B74FA5E25DCA21C00D72DB9 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		0B52DA1625DBA40100F48EFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0B52DA1925DBA40100F48EFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B52DA1B25DBA40100F48EFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0B74FA5E25DCA21C00D72DB9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				0B52DA1825DBA40100F48EFE /* LaunchScreen.storyboard */,
 				0B52DA1B25DBA40100F48EFE /* Info.plist */,
 				0B52DA1325DBA40000F48EFE /* SNS.xcdatamodeld */,
+				0B74FA5E25DCA21C00D72DB9 /* LoginViewController.swift */,
 			);
 			path = SNS;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 				0B52DA1525DBA40000F48EFE /* SNS.xcdatamodeld in Sources */,
 				0B52DA0F25DBA40000F48EFE /* ViewController.swift in Sources */,
 				0B52DA0B25DBA40000F48EFE /* AppDelegate.swift in Sources */,
+				0B74FA5F25DCA21C00D72DB9 /* LoginViewController.swift in Sources */,
 				0B52DA0D25DBA40000F48EFE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
