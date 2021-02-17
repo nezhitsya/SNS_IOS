@@ -9,25 +9,27 @@
 /* Begin PBXBuildFile section */
 		0B52DA0B25DBA40000F48EFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B52DA0A25DBA40000F48EFE /* AppDelegate.swift */; };
 		0B52DA0D25DBA40000F48EFE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B52DA0C25DBA40000F48EFE /* SceneDelegate.swift */; };
-		0B52DA0F25DBA40000F48EFE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B52DA0E25DBA40000F48EFE /* ViewController.swift */; };
 		0B52DA1225DBA40000F48EFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B52DA1025DBA40000F48EFE /* Main.storyboard */; };
 		0B52DA1525DBA40000F48EFE /* SNS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0B52DA1325DBA40000F48EFE /* SNS.xcdatamodeld */; };
 		0B52DA1725DBA40100F48EFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B52DA1625DBA40100F48EFE /* Assets.xcassets */; };
 		0B52DA1A25DBA40100F48EFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B52DA1825DBA40100F48EFE /* LaunchScreen.storyboard */; };
 		0B74FA5F25DCA21C00D72DB9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B74FA5E25DCA21C00D72DB9 /* LoginViewController.swift */; };
+		0B74FA6225DCA9DA00D72DB9 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B74FA6125DCA9DA00D72DB9 /* SignUpViewController.swift */; };
+		0B74FA6625DCAE7800D72DB9 /* SignUpTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B74FA6525DCAE7800D72DB9 /* SignUpTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0B52DA0725DBA40000F48EFE /* SNS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SNS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B52DA0A25DBA40000F48EFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B52DA0C25DBA40000F48EFE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0B52DA0E25DBA40000F48EFE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0B52DA1125DBA40000F48EFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0B52DA1425DBA40000F48EFE /* SNS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SNS.xcdatamodel; sourceTree = "<group>"; };
 		0B52DA1625DBA40100F48EFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0B52DA1925DBA40100F48EFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B52DA1B25DBA40100F48EFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B74FA5E25DCA21C00D72DB9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0B74FA6125DCA9DA00D72DB9 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		0B74FA6525DCAE7800D72DB9 /* SignUpTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,13 +64,14 @@
 			children = (
 				0B52DA0A25DBA40000F48EFE /* AppDelegate.swift */,
 				0B52DA0C25DBA40000F48EFE /* SceneDelegate.swift */,
-				0B52DA0E25DBA40000F48EFE /* ViewController.swift */,
 				0B52DA1025DBA40000F48EFE /* Main.storyboard */,
 				0B52DA1625DBA40100F48EFE /* Assets.xcassets */,
 				0B52DA1825DBA40100F48EFE /* LaunchScreen.storyboard */,
 				0B52DA1B25DBA40100F48EFE /* Info.plist */,
 				0B52DA1325DBA40000F48EFE /* SNS.xcdatamodeld */,
 				0B74FA5E25DCA21C00D72DB9 /* LoginViewController.swift */,
+				0B74FA6125DCA9DA00D72DB9 /* SignUpViewController.swift */,
+				0B74FA6525DCAE7800D72DB9 /* SignUpTextField.swift */,
 			);
 			path = SNS;
 			sourceTree = "<group>";
@@ -143,9 +146,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B74FA6225DCA9DA00D72DB9 /* SignUpViewController.swift in Sources */,
 				0B52DA1525DBA40000F48EFE /* SNS.xcdatamodeld in Sources */,
-				0B52DA0F25DBA40000F48EFE /* ViewController.swift in Sources */,
 				0B52DA0B25DBA40000F48EFE /* AppDelegate.swift in Sources */,
+				0B74FA6625DCAE7800D72DB9 /* SignUpTextField.swift in Sources */,
 				0B74FA5F25DCA21C00D72DB9 /* LoginViewController.swift in Sources */,
 				0B52DA0D25DBA40000F48EFE /* SceneDelegate.swift in Sources */,
 			);
