@@ -83,7 +83,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="ZXe-l2-CQ0"/>
                                         </constraints>
-                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" smartInsertDeleteType="no" smartQuotesType="no"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rWt-y5-D3S">
@@ -216,9 +216,12 @@
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didTextChange:" destination="usK-JS-WhC" eventType="editingDidEnd" id="nO1-Su-r91"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WDy-74-SFD" customClass="SignUpTextField" customModule="SNS" customModuleProvider="target">
-                                <rect key="frame" x="58" y="243" width="277" height="34"/>
+                                <rect key="frame" x="58" y="261" width="277" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
@@ -233,15 +236,42 @@
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didTextChange:" destination="usK-JS-WhC" eventType="editingChanged" id="Qyh-sz-nVQ"/>
+                                </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qi3-O6-k4U">
+                                <rect key="frame" x="320" y="751" width="74" height="57"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="gE0-Pk-xA1"/>
+                                    <constraint firstAttribute="width" constant="74" id="hmm-BG-FbK"/>
+                                </constraints>
+                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" image="arrow.right" catalog="system">
+                                    <color key="titleColor" systemColor="secondaryLabelColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapSignup:" destination="usK-JS-WhC" eventType="touchUpInside" id="S1K-9I-EJW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nKO-fT-lfr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="y7t-fn-SVP" firstAttribute="centerX" secondItem="70n-Wm-SU7" secondAttribute="centerX" id="3N5-6X-sxq"/>
                             <constraint firstItem="y7t-fn-SVP" firstAttribute="top" secondItem="nKO-fT-lfr" secondAttribute="top" constant="60" id="5gA-9Y-DUb"/>
+                            <constraint firstItem="qi3-O6-k4U" firstAttribute="bottom" secondItem="nKO-fT-lfr" secondAttribute="bottom" id="I02-JC-R1o"/>
+                            <constraint firstItem="qi3-O6-k4U" firstAttribute="bottom" secondItem="nKO-fT-lfr" secondAttribute="bottom" id="RZc-HU-k3J"/>
+                            <constraint firstItem="qi3-O6-k4U" firstAttribute="bottom" secondItem="nKO-fT-lfr" secondAttribute="bottom" id="bpT-ej-2Jn"/>
+                            <constraint firstItem="nKO-fT-lfr" firstAttribute="trailing" secondItem="qi3-O6-k4U" secondAttribute="trailing" constant="20" id="n8k-3q-Doj"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="email" destination="zUE-eO-inm" id="sZG-K4-B9X"/>
+                        <outlet property="password" destination="WDy-74-SFD" id="Zc9-0t-tDm"/>
+                        <outlet property="signUp" destination="qi3-O6-k4U" id="A38-mr-S7W"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="04W-DN-5kp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -252,7 +282,7 @@
         <image name="Logo" width="50" height="50"/>
         <image name="arrow.right" catalog="system" width="128" height="98"/>
         <namedColor name="Basic">
-            <color red="0.49683544303797467" green="0.49367088607594939" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.49700000882148743" green="0.49399998784065247" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
