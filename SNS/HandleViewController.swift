@@ -16,24 +16,23 @@ class HandleViewController: UIViewController {
     @IBOutlet weak var start: UIButton!
     
     var rootRef = Database.database().reference()
-    var user: AnyObject?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.user = Auth.auth().currentUser!
     }
     
     @IBAction func didTapStart(_ sender: AnyObject) {
         
-        let handle: Void = self.rootRef.child("handles").child(self.nickname.text!).observeSingleEvent(of: .value, with: { [self] (snapshot: DataSnapshot) in
+        self.rootRef.child("handles").child(self.nickname.text!).observeSingleEvent(of: DataEventType.value, with: { (snapshot: DataSnapshot) in
             
             if(!snapshot.exists()) {
-                self.rootRef.child("User").child(self.user.uid).child("nickname").setValue(self.nickname.text!)
+                self.rootRef.child("User").child((Auth.auth().currentUser?.uid)!).child("nickname").setValue(self.nickname.text!)
                 
-                self.rootRef.child("User").child(self.user.uid).child("description").child("description").setValue(self.descript.text!)
+                self.rootRef.child("User").child((Auth.auth().currentUser?.uid)!).child("description").setValue(self.descript.text!)
                 
-                self.rootRef.child("handles").child(self.nickname.text!).setValue((self.user?.user.uid))
+                self.rootRef.child("handles").child(self.nickname.text!).setValue((Auth.auth().currentUser?.uid)!)
+                
+                self.performSegue(withIdentifier: "HomeViewSegue", sender: nil)
             }
         })
     }

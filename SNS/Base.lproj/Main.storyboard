@@ -351,6 +351,7 @@
                                 <connections>
                                     <action selector="didTapSignup:" destination="usK-JS-WhC" eventType="touchUpInside" id="KHZ-Nn-PIr"/>
                                     <action selector="didTapStart:" destination="nFk-6Q-iPf" eventType="touchUpInside" id="UDj-bp-DXF"/>
+                                    <segue destination="hSe-0s-rl4" kind="presentation" identifier="HomeViewSegue" modalPresentationStyle="fullScreen" id="04j-lO-KBe"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -374,6 +375,9 @@
             <point key="canvasLocation" x="2516" y="810"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="kUb-gn-hHc"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Logo" width="50" height="50"/>
         <image name="arrow.right" catalog="system" width="128" height="98"/>
