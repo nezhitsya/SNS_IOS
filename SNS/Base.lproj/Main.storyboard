@@ -253,6 +253,7 @@
                                 </state>
                                 <connections>
                                     <action selector="didTapSignup:" destination="usK-JS-WhC" eventType="touchUpInside" id="S1K-9I-EJW"/>
+                                    <segue destination="nFk-6Q-iPf" kind="presentation" identifier="HandleViewSegue" id="eYb-Vc-uzZ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -276,6 +277,101 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="04W-DN-5kp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1715.9420289855075" y="809.59821428571422"/>
+        </scene>
+        <!--Handle View Controller-->
+        <scene sceneID="RSZ-68-KEc">
+            <objects>
+                <viewController id="nFk-6Q-iPf" customClass="HandleViewController" customModule="SNS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="whq-FW-YV6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="3Qj-QT-8Ia">
+                                <rect key="frame" x="68.5" y="375" width="277" height="92"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nickname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="276-ku-ENg" customClass="SignUpTextField" customModule="SNS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="277" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="277" id="pRz-qx-4nm"/>
+                                            <constraint firstAttribute="height" constant="34" id="zvn-17-xp6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                <color key="value" name="Basic"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                                <color key="value" red="1" green="0.82804074130000005" blue="0.35102809299999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didTextChange:" destination="usK-JS-WhC" eventType="editingDidEnd" id="joF-MT-spy"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RAg-9s-EOi" customClass="SignUpTextField" customModule="SNS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="58" width="277" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="277" id="HLh-Nf-ZJz"/>
+                                            <constraint firstAttribute="height" constant="34" id="iI0-ah-gac"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                <color key="value" name="Basic"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                                <color key="value" red="1" green="0.82804074130000005" blue="0.35102809299999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didTextChange:" destination="usK-JS-WhC" eventType="editingDidEnd" id="BcD-FI-WcE"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ch-i3-xW9">
+                                <rect key="frame" x="320" y="751" width="74" height="57"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="74" id="FSM-Ba-Z9r"/>
+                                    <constraint firstAttribute="height" constant="57" id="icC-6n-zwf"/>
+                                </constraints>
+                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" image="arrow.right" catalog="system">
+                                    <color key="titleColor" systemColor="secondaryLabelColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapSignup:" destination="usK-JS-WhC" eventType="touchUpInside" id="KHZ-Nn-PIr"/>
+                                    <action selector="didTapStart:" destination="nFk-6Q-iPf" eventType="touchUpInside" id="UDj-bp-DXF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="e5t-PQ-G6o"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="e5t-PQ-G6o" firstAttribute="bottom" secondItem="7ch-i3-xW9" secondAttribute="bottom" id="0Pg-Cb-LES"/>
+                            <constraint firstItem="e5t-PQ-G6o" firstAttribute="trailing" secondItem="7ch-i3-xW9" secondAttribute="trailing" constant="20" id="7lV-OS-gc7"/>
+                            <constraint firstItem="3Qj-QT-8Ia" firstAttribute="centerY" secondItem="whq-FW-YV6" secondAttribute="centerY" id="Lt4-NW-LFN"/>
+                            <constraint firstItem="3Qj-QT-8Ia" firstAttribute="centerX" secondItem="whq-FW-YV6" secondAttribute="centerX" id="wEx-Mj-H9L"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="descript" destination="RAg-9s-EOi" id="vuG-ia-dEv"/>
+                        <outlet property="nickname" destination="276-ku-ENg" id="WbI-n2-3vR"/>
+                        <outlet property="start" destination="7ch-i3-xW9" id="NKi-N6-0Hi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oad-2U-NXz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2516" y="810"/>
         </scene>
     </scenes>
     <resources>

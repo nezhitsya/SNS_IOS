@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,7 @@
 		0B52DA1725DBA40100F48EFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B52DA1625DBA40100F48EFE /* Assets.xcassets */; };
 		0B52DA1A25DBA40100F48EFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B52DA1825DBA40100F48EFE /* LaunchScreen.storyboard */; };
 		0B629B3725DDF43400B80A27 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B629B3625DDF43400B80A27 /* GoogleService-Info.plist */; };
+		0B629B5E25DE00CE00B80A27 /* HandleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B629B5D25DE00CE00B80A27 /* HandleViewController.swift */; };
 		0B74FA5F25DCA21C00D72DB9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B74FA5E25DCA21C00D72DB9 /* LoginViewController.swift */; };
 		0B74FA6225DCA9DA00D72DB9 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B74FA6125DCA9DA00D72DB9 /* SignUpViewController.swift */; };
 		0B74FA6625DCAE7800D72DB9 /* SignUpTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B74FA6525DCAE7800D72DB9 /* SignUpTextField.swift */; };
@@ -30,6 +31,7 @@
 		0B52DA1925DBA40100F48EFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B52DA1B25DBA40100F48EFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B629B3625DDF43400B80A27 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0B629B5D25DE00CE00B80A27 /* HandleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleViewController.swift; sourceTree = "<group>"; };
 		0B74FA5E25DCA21C00D72DB9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0B74FA6125DCA9DA00D72DB9 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		0B74FA6525DCAE7800D72DB9 /* SignUpTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTextField.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				0B74FA5E25DCA21C00D72DB9 /* LoginViewController.swift */,
 				0B74FA6125DCA9DA00D72DB9 /* SignUpViewController.swift */,
 				0B74FA6525DCAE7800D72DB9 /* SignUpTextField.swift */,
+				0B629B5D25DE00CE00B80A27 /* HandleViewController.swift */,
 			);
 			path = SNS;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				0B74FA6625DCAE7800D72DB9 /* SignUpTextField.swift in Sources */,
 				0B74FA5F25DCA21C00D72DB9 /* LoginViewController.swift in Sources */,
 				0B52DA0D25DBA40000F48EFE /* SceneDelegate.swift in Sources */,
+				0B629B5E25DE00CE00B80A27 /* HandleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
