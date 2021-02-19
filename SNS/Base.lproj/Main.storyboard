@@ -29,7 +29,7 @@
                                     <color key="titleColor" systemColor="secondaryLabelColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="yRx-Vo-kfT" kind="presentation" modalPresentationStyle="fullScreen" id="KSE-rr-otc"/>
+                                    <segue destination="yRx-Vo-kfT" kind="presentation" identifier="LoginViewSegue" modalPresentationStyle="fullScreen" id="KSE-rr-otc"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="SxS-W9-QiY">
@@ -69,7 +69,7 @@
         <!--Login View Controller-->
         <scene sceneID="FnP-f9-DIA">
             <objects>
-                <viewController id="yRx-Vo-kfT" customClass="LoginViewController" customModule="SNS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginvView" id="yRx-Vo-kfT" customClass="LoginViewController" customModule="SNS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OZf-C1-QBm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -101,7 +101,7 @@
                                             <color key="titleColor" systemColor="linkColor"/>
                                         </state>
                                         <connections>
-                                            <segue destination="qgw-1m-hrf" kind="presentation" id="zrD-jt-ypG"/>
+                                            <segue destination="qgw-1m-hrf" kind="presentation" identifier="PassViewSegue" id="zrD-jt-ypG"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvC-fp-7A5">
@@ -111,11 +111,12 @@
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="4Za-24-ILg"/>
                                         </constraints>
                                         <color key="tintColor" red="0.95670836010000004" green="1" blue="0.97969216069999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <state key="normal" title="Button">
+                                        <state key="normal" title="Login">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="hSe-0s-rl4" kind="presentation" modalPresentationStyle="fullScreen" id="kUb-gn-hHc"/>
+                                            <action selector="didTapLogin:" destination="yRx-Vo-kfT" eventType="touchUpInside" id="ncQ-mX-ePN"/>
+                                            <segue destination="hSe-0s-rl4" kind="presentation" identifier="HomeViewSegue" modalPresentationStyle="fullScreen" id="Ydz-ED-wsU"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -149,6 +150,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="email" destination="c6k-8Y-fNC" id="bpS-W3-RnI"/>
+                        <outlet property="password" destination="rWt-y5-D3S" id="bnp-Pz-hjT"/>
                         <outlet property="roundedCornerBtn" destination="cvC-fp-7A5" id="x54-Hk-Px8"/>
                     </connections>
                 </viewController>
@@ -376,7 +379,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="kUb-gn-hHc"/>
+        <segue reference="Ydz-ED-wsU"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Logo" width="50" height="50"/>
