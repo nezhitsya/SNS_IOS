@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B19C77025E0BD7300A0BCFC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B19C76F25E0BD7300A0BCFC /* HomeViewController.swift */; };
+		0B19C77325E0CF9F00A0BCFC /* HomeViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B19C77225E0CF9F00A0BCFC /* HomeViewTableViewCell.swift */; };
 		0B52DA0B25DBA40000F48EFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B52DA0A25DBA40000F48EFE /* AppDelegate.swift */; };
 		0B52DA0D25DBA40000F48EFE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B52DA0C25DBA40000F48EFE /* SceneDelegate.swift */; };
 		0B52DA1225DBA40000F48EFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B52DA1025DBA40000F48EFE /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		0B19C76F25E0BD7300A0BCFC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		0B19C77225E0CF9F00A0BCFC /* HomeViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewTableViewCell.swift; sourceTree = "<group>"; };
 		0B52DA0725DBA40000F48EFE /* SNS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SNS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B52DA0A25DBA40000F48EFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B52DA0C25DBA40000F48EFE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				0B74FA6525DCAE7800D72DB9 /* SignUpTextField.swift */,
 				0B629B5D25DE00CE00B80A27 /* HandleViewController.swift */,
 				0B19C76F25E0BD7300A0BCFC /* HomeViewController.swift */,
+				0B19C77225E0CF9F00A0BCFC /* HomeViewTableViewCell.swift */,
 			);
 			path = SNS;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 				0B74FA5F25DCA21C00D72DB9 /* LoginViewController.swift in Sources */,
 				0B52DA0D25DBA40000F48EFE /* SceneDelegate.swift in Sources */,
 				0B629B5E25DE00CE00B80A27 /* HandleViewController.swift in Sources */,
+				0B19C77325E0CF9F00A0BCFC /* HomeViewTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
