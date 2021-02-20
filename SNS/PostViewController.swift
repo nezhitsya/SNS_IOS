@@ -43,8 +43,7 @@ class PostViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
         if(postTextView.text.count > 0) {
             let key = self.databaseRef.child("posts").childByAutoId().key
             let user = Auth.auth().currentUser
-            
-            let childUpdates = ["/posts/\(user!.uid)/\(key)/text": postTextView.text!, "/posts/\(user!.uid)/\(key)/timestamp": "\(NSDate().timeIntervalSince1970)"]
+            let childUpdates = ["/posts/\(user!.uid)/\(key!)/text": postTextView.text!, "/posts/\(user!.uid)/\(key!)/timestamp": "\(NSDate().timeIntervalSince1970)"]
             
             self.databaseRef.updateChildValues(childUpdates)
             
