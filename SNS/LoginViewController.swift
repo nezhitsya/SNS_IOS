@@ -33,7 +33,7 @@ class LoginViewController: UIViewController {
                     if(snapshot.exists()) {
                         self.performSegue(withIdentifier: "HomeViewSegue", sender: nil)
                     } else {
-                        self.present(SignUpViewController(), animated: true, completion: nil)
+                        
                     }
                 })
             }
