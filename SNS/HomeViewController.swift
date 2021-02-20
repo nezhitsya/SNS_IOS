@@ -12,7 +12,8 @@ import FirebaseDatabase
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var databaseRef = Database.database().reference()
-    var post = [AnyObject?]()
+    var post: [NSDictionary?] = []
+    var userData: AnyObject? = .none
     
     @IBOutlet weak var homeTableView: UITableView!
 
@@ -22,9 +23,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let user = Auth.auth().currentUser
         self.databaseRef.child("User").child(user!.uid).observeSingleEvent(of: DataEventType.value) { ( snapshot: DataSnapshot) in
             
-            self.databaseRef.child("post/\(user!.uid)").observeSingleEvent(of: .childAdded, with: { (snapshot: DataSnapshot) in
+            self.userData = snapshot
+            
+            self.databaseRef.child("posts/\(user!.uid)").observeSingleEvent(of: .childAdded, with: { (snapshot: DataSnapshot) in
                 
-                self.post.append(snapshot)
+                self.post.append(snapshot.value as! NSDictionary)
                 self.homeTableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: UITableView.RowAnimation.automatic)
             })
         }
@@ -35,12 +38,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return self.post.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell: HomeViewTableViewCell = tableView.dequeueReusableCell(withIdentifier: "HomeViewTableViewCell", for: indexPath) as! HomeViewTableViewCell
+        let cell: HomeViewTableViewCell = tableView.dequeueReusableCell(withIdentifier: "HomeViewTableViewCell", for: indexPath as IndexPath) as! HomeViewTableViewCell
+        
+        let posts = post[(self.post.count - 1) - indexPath.row]!["text"] as! String
+    
+        cell.configure(profilePic: nil, name: self.userData!.value(forKey: "name") as! String, nickname: self.userData!.value(forKey: "nickname") as! String, post: posts)
         
         return cell
     }
