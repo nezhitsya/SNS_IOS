@@ -236,7 +236,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="dl2-zE-imh">
+                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="dl2-zE-imh">
                                                     <rect key="frame" x="76" y="121" width="320" height="30"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="InX-kR-AMo">
@@ -259,6 +259,7 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="dl2-zE-imh" firstAttribute="top" secondItem="jvx-ov-ntI" secondAttribute="bottom" constant="16" id="7VW-lO-NL4"/>
                                                 <constraint firstItem="TQC-UZ-ImL" firstAttribute="top" secondItem="SDe-aA-LWO" secondAttribute="top" id="8aR-oq-YcK"/>
                                                 <constraint firstItem="TQC-UZ-ImL" firstAttribute="top" secondItem="SDe-aA-LWO" secondAttribute="top" id="ETD-2o-Sa4"/>
                                                 <constraint firstItem="TQC-UZ-ImL" firstAttribute="leading" secondItem="SDe-aA-LWO" secondAttribute="trailing" constant="18" id="Gu7-Ml-DdT"/>
@@ -268,6 +269,7 @@
                                                 <constraint firstItem="btB-v2-xnB" firstAttribute="leading" secondItem="jmK-ct-Je7" secondAttribute="leading" constant="14" id="TxR-41-PXp"/>
                                                 <constraint firstItem="btB-v2-xnB" firstAttribute="top" secondItem="jmK-ct-Je7" secondAttribute="top" constant="8" id="U58-h5-Wnj"/>
                                                 <constraint firstItem="SDe-aA-LWO" firstAttribute="leading" secondItem="btB-v2-xnB" secondAttribute="trailing" constant="22" id="UJq-0H-bTf"/>
+                                                <constraint firstItem="dl2-zE-imh" firstAttribute="leading" secondItem="jvx-ov-ntI" secondAttribute="leading" id="ZqB-iG-yHZ"/>
                                                 <constraint firstItem="jvx-ov-ntI" firstAttribute="top" secondItem="SDe-aA-LWO" secondAttribute="bottom" constant="8" symbolic="YES" id="exW-pY-aIE"/>
                                                 <constraint firstItem="SDe-aA-LWO" firstAttribute="top" secondItem="btB-v2-xnB" secondAttribute="top" id="hEv-bH-Foy"/>
                                                 <constraint firstItem="jvx-ov-ntI" firstAttribute="leading" secondItem="SDe-aA-LWO" secondAttribute="leading" id="yBc-2v-SPc"/>
@@ -288,7 +290,11 @@
                                 <items>
                                     <navigationItem title="Home" id="0lO-Ff-j9G">
                                         <barButtonItem key="leftBarButtonItem" image="person.badge.plus" catalog="system" id="Pey-gn-XfA"/>
-                                        <barButtonItem key="rightBarButtonItem" image="square.and.pencil" catalog="system" id="d3j-mK-859"/>
+                                        <barButtonItem key="rightBarButtonItem" image="square.and.pencil" catalog="system" id="d3j-mK-859">
+                                            <connections>
+                                                <segue destination="KLM-G4-pqa" kind="presentation" modalPresentationStyle="automatic" id="DnY-bZ-zHf"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -309,6 +315,63 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KaO-g2-2eM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3673.913043478261" y="-283.25892857142856"/>
+        </scene>
+        <!--Post View Controller-->
+        <scene sceneID="bjC-e8-3wp">
+            <objects>
+                <viewController id="KLM-G4-pqa" customClass="PostViewController" customModule="SNS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="I8X-6q-Qgv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eYR-CW-8k9">
+                                <rect key="frame" x="20" y="20" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="hIX-lQ-h3l"/>
+                                    <constraint firstAttribute="width" constant="40" id="j61-vA-qkM"/>
+                                </constraints>
+                                <state key="normal" image="arrow.backward" catalog="system"/>
+                                <connections>
+                                    <action selector="didTapCancel:" destination="KLM-G4-pqa" eventType="touchUpInside" id="6am-pX-tkd"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="example" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="624-iX-uc3">
+                                <rect key="frame" x="35" y="80" width="344" height="445"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Jd-k8-A7v">
+                                <rect key="frame" x="191.5" y="565" width="31" height="30"/>
+                                <state key="normal" title="Post"/>
+                                <connections>
+                                    <action selector="didTapPost:" destination="KLM-G4-pqa" eventType="touchUpInside" id="yuw-Rs-sxo"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="DOj-Ax-fLR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="eYR-CW-8k9" firstAttribute="leading" secondItem="DOj-Ax-fLR" secondAttribute="leading" constant="20" id="BAp-Ri-EWw"/>
+                            <constraint firstItem="DOj-Ax-fLR" firstAttribute="trailing" secondItem="624-iX-uc3" secondAttribute="trailing" constant="35" id="IpE-VT-I1t"/>
+                            <constraint firstItem="DOj-Ax-fLR" firstAttribute="bottom" secondItem="0Jd-k8-A7v" secondAttribute="bottom" constant="213" id="Qy7-nW-DpG"/>
+                            <constraint firstItem="624-iX-uc3" firstAttribute="top" secondItem="eYR-CW-8k9" secondAttribute="bottom" constant="20" id="TIL-LF-Eb4"/>
+                            <constraint firstItem="0Jd-k8-A7v" firstAttribute="centerX" secondItem="624-iX-uc3" secondAttribute="centerX" id="VxW-jJ-j7A"/>
+                            <constraint firstItem="0Jd-k8-A7v" firstAttribute="top" secondItem="624-iX-uc3" secondAttribute="bottom" constant="40" id="WXk-ZD-xNZ"/>
+                            <constraint firstItem="624-iX-uc3" firstAttribute="leading" secondItem="DOj-Ax-fLR" secondAttribute="leading" constant="35" id="XMS-FD-2zA"/>
+                            <constraint firstItem="eYR-CW-8k9" firstAttribute="top" secondItem="DOj-Ax-fLR" secondAttribute="top" constant="20" id="c1c-D1-9EI"/>
+                            <constraint firstItem="624-iX-uc3" firstAttribute="leading" secondItem="eYR-CW-8k9" secondAttribute="trailing" constant="-25" id="py7-ec-i5V"/>
+                            <constraint firstItem="624-iX-uc3" firstAttribute="centerX" secondItem="I8X-6q-Qgv" secondAttribute="centerX" id="zj6-1m-MaX"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="postTextView" destination="624-iX-uc3" id="MU5-cT-h47"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sZ0-gC-Neh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4460.8695652173919" y="-283.25892857142856"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="aHO-mc-F5Y">
@@ -557,6 +620,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Logo" width="50" height="50"/>
+        <image name="arrow.backward" catalog="system" width="128" height="98"/>
         <image name="arrow.right" catalog="system" width="128" height="98"/>
         <image name="arrowshape.turn.up.backward.fill" catalog="system" width="128" height="106"/>
         <image name="bell" catalog="system" width="128" height="124"/>
