@@ -21,15 +21,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let user = Auth.auth().currentUser
-        self.databaseRef.child("User").child(user!.uid).observeSingleEvent(of: DataEventType.value) { ( snapshot: DataSnapshot) in
+        let userUid = Auth.auth().currentUser?.uid
+        self.databaseRef.child("User").child(userUid!).observeSingleEvent(of: .value) { ( snapshot: DataSnapshot) in
             
-            let userUid = Auth.auth().currentUser?.uid
-            self.userData = snapshot
+            self.userData = snapshot.value as? NSDictionary
+            print(self.userData!)
             
             self.databaseRef.child("posts").child(userUid!).observe(.childAdded, with: { (snapshot: DataSnapshot) in
                 
-                self.post.append(snapshot.value as! NSDictionary)
+                self.post.append((snapshot.value as! NSDictionary))
                 self.homeTableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: UITableView.RowAnimation.automatic)
             })
         }
