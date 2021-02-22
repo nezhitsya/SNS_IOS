@@ -13,27 +13,31 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var databaseRef = Database.database().reference()
     var post: [NSDictionary?] = []
-    var user: NSDictionary? = .none
     var userData: AnyObject? = .none
     
     @IBOutlet weak var homeTableView: UITableView!
-
+    @IBOutlet weak var activeLoading: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let userUid = Auth.auth().currentUser?.uid
         self.databaseRef.child("User").child(userUid!).observeSingleEvent(of: .value) { ( snapshot: DataSnapshot) in
-            
+
             self.userData = snapshot.value as? NSDictionary
-            print(self.userData!)
-            
+
             self.databaseRef.child("posts").child(userUid!).observe(.childAdded, with: { (snapshot: DataSnapshot) in
-                
-                self.post.append((snapshot.value as! NSDictionary))
-                self.homeTableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: UITableView.RowAnimation.automatic)
-            })
+
+                if snapshot.childrenCount > 0 {
+                    self.post.append(snapshot.value as? NSDictionary)
+                    self.homeTableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: UITableView.RowAnimation.automatic)
+                    self.activeLoading.stopAnimating()
+                }
+            }) {(error) in
+                print(error.localizedDescription)
+            }
         }
-        
+
         self.homeTableView.rowHeight = 100
         self.homeTableView.estimatedRowHeight = 140
     }
@@ -49,10 +53,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell: HomeViewTableViewCell = tableView.dequeueReusableCell(withIdentifier: "HomeViewTableViewCell", for: indexPath) as! HomeViewTableViewCell
-        
+
         let posts = post[(self.post.count - 1) - (indexPath.row)]!["text"] as! String
-    
+
         cell.configure(profilePic: nil, name: self.userData!.value(forKey: "name") as! String, nickname: self.userData!.value(forKey: "nickname") as! String, post: posts)
+        
+//        let cell: HomeViewTableViewCell = tableView.dequeueReusableCell(withIdentifier: "HomeViewTableViewCell", for: indexPath) as! HomeViewTableViewCell
         
         return cell
     }

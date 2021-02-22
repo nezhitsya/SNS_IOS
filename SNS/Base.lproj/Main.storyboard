@@ -203,7 +203,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="162" id="isd-sr-888" customClass="HomeViewTableViewCell" customModule="SNS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HomeViewTableViewCell" rowHeight="162" id="isd-sr-888" customClass="HomeViewTableViewCell" customModule="SNS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="162"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="isd-sr-888" id="jmK-ct-Je7">
@@ -245,11 +245,11 @@
                                                                 <constraint firstAttribute="height" constant="30" id="Vi7-ci-611"/>
                                                                 <constraint firstAttribute="width" constant="90" id="lCa-Ct-PSB"/>
                                                             </constraints>
-                                                            <state key="normal" image="arrowshape.turn.up.backward.fill" catalog="system"/>
+                                                            <state key="normal" image="arrowshape.turn.up.left.fill" catalog="system"/>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nzt-mQ-x1n">
                                                             <rect key="frame" x="115" y="0.0" width="90" height="30"/>
-                                                            <state key="normal" image="repeat" catalog="system"/>
+                                                            <state key="normal" image="arrow.2.squarepath" catalog="system"/>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V1Y-ku-SJw">
                                                             <rect key="frame" x="230" y="0.0" width="90" height="30"/>
@@ -300,6 +300,10 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" id="GUp-PV-5T4">
+                                <rect key="frame" x="0.0" y="426" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hTw-OG-cGB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -311,7 +315,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="house" catalog="system" id="lQB-gf-IzS"/>
                     <connections>
-                        <outlet property="homeTableView" destination="YeH-oB-wq3" id="RWT-yK-rQ9"/>
+                        <outlet property="activeLoading" destination="GUp-PV-5T4" id="78B-IZ-aKR"/>
+                        <outlet property="homeTableView" destination="YeH-oB-wq3" id="BhQ-4w-Axn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KaO-g2-2eM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -389,9 +394,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zUE-eO-inm" customClass="SignUpTextField" customModule="SNS" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zUE-eO-inm" customClass="SignUpTextField" customModule="SNS" customModuleProvider="target">
                                 <rect key="frame" x="58" y="190" width="277" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="gVg-6U-OLL"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                 <userDefinedRuntimeAttributes>
@@ -409,9 +416,11 @@
                                     <action selector="didTextChange:" destination="usK-JS-WhC" eventType="editingDidEnd" id="nO1-Su-r91"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WDy-74-SFD" customClass="SignUpTextField" customModule="SNS" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WDy-74-SFD" customClass="SignUpTextField" customModule="SNS" customModuleProvider="target">
                                 <rect key="frame" x="58" y="261" width="277" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="QpO-2g-sgd"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                 <userDefinedRuntimeAttributes>
@@ -451,9 +460,15 @@
                         <constraints>
                             <constraint firstItem="y7t-fn-SVP" firstAttribute="centerX" secondItem="70n-Wm-SU7" secondAttribute="centerX" id="3N5-6X-sxq"/>
                             <constraint firstItem="y7t-fn-SVP" firstAttribute="top" secondItem="nKO-fT-lfr" secondAttribute="top" constant="60" id="5gA-9Y-DUb"/>
+                            <constraint firstItem="zUE-eO-inm" firstAttribute="top" secondItem="nKO-fT-lfr" secondAttribute="top" constant="190" id="BvL-Rn-95J"/>
+                            <constraint firstItem="WDy-74-SFD" firstAttribute="leading" secondItem="zUE-eO-inm" secondAttribute="leading" id="E2z-Lw-JRl"/>
                             <constraint firstItem="qi3-O6-k4U" firstAttribute="bottom" secondItem="nKO-fT-lfr" secondAttribute="bottom" id="I02-JC-R1o"/>
+                            <constraint firstItem="zUE-eO-inm" firstAttribute="leading" secondItem="nKO-fT-lfr" secondAttribute="leading" constant="58" id="KC1-jp-HsE"/>
                             <constraint firstItem="qi3-O6-k4U" firstAttribute="bottom" secondItem="nKO-fT-lfr" secondAttribute="bottom" id="RZc-HU-k3J"/>
+                            <constraint firstItem="WDy-74-SFD" firstAttribute="trailing" secondItem="zUE-eO-inm" secondAttribute="trailing" id="VZa-cs-j2w"/>
+                            <constraint firstItem="nKO-fT-lfr" firstAttribute="trailing" secondItem="zUE-eO-inm" secondAttribute="trailing" constant="79" id="Zmm-mn-5xr"/>
                             <constraint firstItem="qi3-O6-k4U" firstAttribute="bottom" secondItem="nKO-fT-lfr" secondAttribute="bottom" id="bpT-ej-2Jn"/>
+                            <constraint firstItem="WDy-74-SFD" firstAttribute="top" secondItem="zUE-eO-inm" secondAttribute="bottom" constant="37" id="luc-Qr-5fb"/>
                             <constraint firstItem="nKO-fT-lfr" firstAttribute="trailing" secondItem="qi3-O6-k4U" secondAttribute="trailing" constant="20" id="n8k-3q-Doj"/>
                         </constraints>
                     </view>
@@ -622,16 +637,16 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Logo" width="50" height="50"/>
+        <image name="arrow.2.squarepath" catalog="system" width="128" height="89"/>
         <image name="arrow.backward" catalog="system" width="128" height="98"/>
         <image name="arrow.right" catalog="system" width="128" height="98"/>
-        <image name="arrowshape.turn.up.backward.fill" catalog="system" width="128" height="106"/>
+        <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="106"/>
         <image name="bell" catalog="system" width="128" height="124"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="message" catalog="system" width="128" height="113"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="person.badge.plus" catalog="system" width="128" height="124"/>
-        <image name="repeat" catalog="system" width="128" height="99"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <namedColor name="BW">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
