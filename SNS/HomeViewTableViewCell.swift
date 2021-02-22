@@ -18,12 +18,6 @@ class HomeViewTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
     public func configure(profilePic: String?, name: String, nickname: String, post: String) {
         self.post.text = post
@@ -31,8 +25,8 @@ class HomeViewTableViewCell: UITableViewCell {
         self.name.text = name
         
         if((profilePic) != nil) {
-            let imageData = NSData(contentsOf: NSURL(string: profilePic!)! as URL)
-            self.profilePic.image = UIImage(data: imageData! as Data)
+            let imageData: Data = try! Data(contentsOf: URL(string: profilePic!)!)
+            self.profilePic.image = UIImage(data: imageData)
         } else {
             self.profilePic.image = UIImage(named: "Logo")
         }

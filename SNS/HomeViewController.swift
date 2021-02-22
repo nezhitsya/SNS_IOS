@@ -13,6 +13,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var databaseRef = Database.database().reference()
     var post: [NSDictionary?] = []
+    var user: NSDictionary? = .none
     var userData: AnyObject? = .none
     
     @IBOutlet weak var homeTableView: UITableView!
@@ -23,14 +24,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let user = Auth.auth().currentUser
         self.databaseRef.child("User").child(user!.uid).observeSingleEvent(of: DataEventType.value) { ( snapshot: DataSnapshot) in
             
+            let userUid = Auth.auth().currentUser?.uid
             self.userData = snapshot
             
-            self.databaseRef.child("posts/\(user!.uid)").observeSingleEvent(of: .childAdded, with: { (snapshot: DataSnapshot) in
+            self.databaseRef.child("posts").child(userUid!).observe(.childAdded, with: { (snapshot: DataSnapshot) in
                 
                 self.post.append(snapshot.value as! NSDictionary)
                 self.homeTableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: UITableView.RowAnimation.automatic)
             })
         }
+        
+        self.homeTableView.rowHeight = 100
+        self.homeTableView.estimatedRowHeight = 140
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -41,11 +46,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return self.post.count
     }
     
-    internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell: HomeViewTableViewCell = tableView.dequeueReusableCell(withIdentifier: "HomeViewTableViewCell", for: indexPath as IndexPath) as! HomeViewTableViewCell
+        let cell: HomeViewTableViewCell = tableView.dequeueReusableCell(withIdentifier: "HomeViewTableViewCell", for: indexPath) as! HomeViewTableViewCell
         
-        let posts = post[(self.post.count - 1) - indexPath.row]!["text"] as! String
+        let posts = post[(self.post.count - 1) - (indexPath.row)]!["text"] as! String
     
         cell.configure(profilePic: nil, name: self.userData!.value(forKey: "name") as! String, nickname: self.userData!.value(forKey: "nickname") as! String, post: posts)
         
