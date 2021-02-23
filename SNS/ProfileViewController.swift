@@ -33,8 +33,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         let userUid = Auth.auth().currentUser?.uid
         self.databaseRef.child("User").child(userUid!).observeSingleEvent(of: .value) { ( snapshot: DataSnapshot) in
             
-            self.name.text = snapshot.value(forKey: "nickname") as? String
-            self.nickname.text = snapshot.value(forKey: "nickname") as? String
+//            self.name.text = snapshot.value(forKey: "nickname") as? String
+//            self.nickname.text = snapshot.value(forKey: "nickname") as? String
             
             if(snapshot.value(forKey: "description") != nil) {
                 self.about.text = snapshot.value(forKey: "about") as? String
@@ -46,7 +46,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 let data: Data = try! Data(contentsOf: URL(string: databaseProfilePic)!)
                 
                 self.setProfilePicture(imageView: self.profilePicture, imageToSet: UIImage(data: data)!)
-                
             }
         }
     }
@@ -78,6 +77,23 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 self.present(self.imagePicker, animated: true, completion: nil)
             }
         }
+        
+        let camera = UIAlertAction(title: "Camera", style: UIAlertAction.Style.default) { (action) in
+            
+            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
+                self.imagePicker.delegate = self
+                self.imagePicker.sourceType = UIImagePickerController.SourceType.camera
+                self.imagePicker.allowsEditing = true
+                self.present(self.imagePicker, animated: true, completion: nil)
+            }
+        }
+        
+        myActionSheet.addAction(viewPicture)
+        myActionSheet.addAction(photoGallery)
+        myActionSheet.addAction(camera)
+        
+        myActionSheet.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+        self.present(myActionSheet, animated: true, completion: nil)
     }
     
     @IBAction func didTapLogout(_ sender: Any) {
@@ -117,6 +133,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     @objc func dismissFullScreenImage(sender: UITapGestureRecognizer) {
         sender.view?.removeFromSuperview()
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String: AnyObject]?) {
+        
+        setProfilePicture(imageView: self.profilePicture, imageToSet: image)
     }
     
     internal func setProfilePicture(imageView: UIImageView, imageToSet: UIImage) {

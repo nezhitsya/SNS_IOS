@@ -60,7 +60,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 //
 //        let posts = post[(self.post.count - 1) - (indexPath.row)]!["text"] as! String
 //
-//        cell.configure(profilePic: nil, name: self.userData!.value(forKey: "description") as! String, nickname: self.userData!.value(forKey: "nickname") as! String, post: posts)
+//        cell.configure(profilePic: nil, name: self.userData!.value(forKey: "name") as! String, nickname: self.userData!.value(forKey: "nickname") as! String, post: posts)
 
         let cell: HomeViewTableViewCell = tableView.dequeueReusableCell(withIdentifier: "HomeViewTableViewCell", for: indexPath) as! HomeViewTableViewCell
 
