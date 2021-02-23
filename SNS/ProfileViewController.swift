@@ -33,18 +33,19 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         let userUid = Auth.auth().currentUser?.uid
         self.databaseRef.child("User").child(userUid!).observeSingleEvent(of: .value) { ( snapshot: DataSnapshot) in
             
-//            self.name.text = snapshot.value(forKey: "nickname") as? String
-//            self.nickname.text = snapshot.value(forKey: "nickname") as? String
+            let value = snapshot.value as? NSDictionary
+            self.name.text = value?["nickname"] as? String
+            self.nickname.text = value?["nickname"] as? String
             
-            if(snapshot.value(forKey: "description") != nil) {
-                self.about.text = snapshot.value(forKey: "about") as? String
+            if(value?["description"] != nil) {
+                self.about.text = value?["about"] as? String
             }
-            
-            if(snapshot.value(forKey: "profilePic") != nil) {
-                let databaseProfilePic = snapshot.value(forKey: "profilePic") as! String
-                
+
+            if(value?["profilePic"] != nil) {
+                let databaseProfilePic = value?["profilePic"] as! String
+
                 let data: Data = try! Data(contentsOf: URL(string: databaseProfilePic)!)
-                
+
                 self.setProfilePicture(imageView: self.profilePicture, imageToSet: UIImage(data: data)!)
             }
         }

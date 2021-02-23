@@ -586,7 +586,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TPs-bj-LCS">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="TPs-bj-LCS">
                                 <rect key="frame" x="0.0" y="44" width="414" height="210"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="210" id="4AO-Ft-2dy"/>
@@ -595,7 +595,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bQM-Jt-WoS">
                                 <rect key="frame" x="0.0" y="262" width="414" height="551"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ew6-wO-2Eu">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="ew6-wO-2Eu">
                                         <rect key="frame" x="8" y="8" width="125" height="125"/>
                                         <gestureRecognizers/>
                                         <constraints>
@@ -638,7 +638,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="About" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bPc-eF-CR5">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="About" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bPc-eF-CR5">
                                         <rect key="frame" x="8" y="201" width="398" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="P9B-Ca-NNy"/>
@@ -741,8 +741,8 @@
                         <outlet property="about" destination="bPc-eF-CR5" id="4ma-vT-1ZG"/>
                         <outlet property="likesContainer" destination="EdH-6c-Cqh" id="OMI-5P-0D6"/>
                         <outlet property="mediaContainer" destination="v4i-zl-AmV" id="pfG-rd-Nah"/>
-                        <outlet property="name" destination="GEc-Q9-frX" id="NnU-kJ-ZX9"/>
-                        <outlet property="nickname" destination="w4J-dK-0KZ" id="zfD-uV-7J3"/>
+                        <outlet property="name" destination="GEc-Q9-frX" id="gFP-Bc-Z7n"/>
+                        <outlet property="nickname" destination="w4J-dK-0KZ" id="7xR-Ja-6cO"/>
                         <outlet property="postContainer" destination="Ol2-bg-7hN" id="0cS-Bz-7AA"/>
                         <outlet property="profilePicture" destination="ew6-wO-2Eu" id="CiC-gh-of4"/>
                     </connections>
@@ -808,6 +808,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="tjK-ZS-PVG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="I1z-eX-HgD" firstAttribute="centerY" secondItem="aHH-XL-j76" secondAttribute="centerY" id="Htl-zz-Dbs"/>
@@ -834,6 +835,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="IyS-xd-Y6v"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="eXe-2D-Pw6" firstAttribute="centerX" secondItem="vfe-aJ-cLC" secondAttribute="centerX" id="BrJ-NJ-wtw"/>
@@ -860,6 +862,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="2BC-b8-aSX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="1gL-Oa-vxA" firstAttribute="centerY" secondItem="eCD-sT-kYj" secondAttribute="centerY" id="2E7-lO-gTC"/>
