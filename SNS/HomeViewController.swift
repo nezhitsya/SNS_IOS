@@ -21,48 +21,49 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let userUid = Auth.auth().currentUser?.uid
-        
-        self.databaseRef.child("User").child(userUid!).observeSingleEvent(of: .value) { ( snapshot: DataSnapshot) in
-
-            self.userData = snapshot.value as? NSDictionary
-
-            self.databaseRef.child("posts").child(userUid!).observe(.childAdded, with: { (snapshot: DataSnapshot) in
-
-                if snapshot.childrenCount > 0 {
-                    self.post.append(snapshot.value as? NSDictionary)
-                    self.homeTableView.beginUpdates()
-                    self.homeTableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: UITableView.RowAnimation.automatic)
-                    self.homeTableView.endUpdates()
-                    self.activeLoading.stopAnimating()
-                }
-            }) {(error) in
-                print(error.localizedDescription)
-            }
-        }
-
-        self.homeTableView.rowHeight = 100
-        self.homeTableView.estimatedRowHeight = 140
+//        let userUid = Auth.auth().currentUser?.uid
+//
+//        self.databaseRef.child("User").child(userUid!).observeSingleEvent(of: .value) { ( snapshot: DataSnapshot) in
+//
+//            self.userData = snapshot.value as? NSDictionary
+//
+//            self.databaseRef.child("posts").child(userUid!).observe(.childAdded, with: { (snapshot: DataSnapshot) in
+//
+//                if snapshot.childrenCount > 0 {
+//                    self.post.append(snapshot.value as? NSDictionary)
+//                    self.homeTableView.beginUpdates()
+//                    self.homeTableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: UITableView.RowAnimation.automatic)
+//                    self.homeTableView.endUpdates()
+//                    self.activeLoading.stopAnimating()
+//                }
+//            }) {(error) in
+//                print(error.localizedDescription)
+//            }
+//        }
+//
+//        self.homeTableView.rowHeight = 100
+//        self.homeTableView.estimatedRowHeight = 140
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.post.count
+//        return self.post.count
+        return 1
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+
+//        let cell: HomeViewTableViewCell = tableView.dequeueReusableCell(withIdentifier: "HomeViewTableViewCell", for: indexPath) as! HomeViewTableViewCell
+//
+//        let posts = post[(self.post.count - 1) - (indexPath.row)]!["text"] as! String
+//
+//        cell.configure(profilePic: nil, name: self.userData!.value(forKey: "name") as! String, nickname: self.userData!.value(forKey: "nickname") as! String, post: posts)
+
         let cell: HomeViewTableViewCell = tableView.dequeueReusableCell(withIdentifier: "HomeViewTableViewCell", for: indexPath) as! HomeViewTableViewCell
 
-        let posts = post[(self.post.count - 1) - (indexPath.row)]!["text"] as! String
-
-        cell.configure(profilePic: nil, name: self.userData!.value(forKey: "name") as! String, nickname: self.userData!.value(forKey: "nickname") as! String, post: posts)
-        
-//        let cell: HomeViewTableViewCell = tableView.dequeueReusableCell(withIdentifier: "HomeViewTableViewCell", for: indexPath) as! HomeViewTableViewCell
-        
         return cell
     }
 

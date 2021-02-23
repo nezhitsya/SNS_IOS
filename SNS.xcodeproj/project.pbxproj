@@ -22,6 +22,7 @@
 		0B74FA5F25DCA21C00D72DB9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B74FA5E25DCA21C00D72DB9 /* LoginViewController.swift */; };
 		0B74FA6225DCA9DA00D72DB9 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B74FA6125DCA9DA00D72DB9 /* SignUpViewController.swift */; };
 		0B74FA6625DCAE7800D72DB9 /* SignUpTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B74FA6525DCAE7800D72DB9 /* SignUpTextField.swift */; };
+		0BA989EB25E481B600E3EB25 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA989EA25E481B600E3EB25 /* ProfileViewController.swift */; };
 		D33A95F8DF36F333242FEA69 /* Pods_SNS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AC6E907E79897AC3910F69E /* Pods_SNS.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		0B74FA5E25DCA21C00D72DB9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0B74FA6125DCA9DA00D72DB9 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		0B74FA6525DCAE7800D72DB9 /* SignUpTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTextField.swift; sourceTree = "<group>"; };
+		0BA989EA25E481B600E3EB25 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		2AC6E907E79897AC3910F69E /* Pods_SNS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SNS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BBDAC2698B4B3B001B10C76 /* Pods-SNS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SNS.debug.xcconfig"; path = "Target Support Files/Pods-SNS/Pods-SNS.debug.xcconfig"; sourceTree = "<group>"; };
 		D9332C39DA91036FB2252056 /* Pods-SNS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SNS.release.xcconfig"; path = "Target Support Files/Pods-SNS/Pods-SNS.release.xcconfig"; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				0B19C77225E0CF9F00A0BCFC /* HomeViewTableViewCell.swift */,
 				0B19C77525E0DA7F00A0BCFC /* PostViewController.swift */,
 				0B228E0325E332CA0085C11A /* ViewController.swift */,
+				0BA989EA25E481B600E3EB25 /* ProfileViewController.swift */,
 			);
 			path = SNS;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				0B19C77025E0BD7300A0BCFC /* HomeViewController.swift in Sources */,
 				0B228E0425E332CA0085C11A /* ViewController.swift in Sources */,
 				0B19C77625E0DA7F00A0BCFC /* PostViewController.swift in Sources */,
+				0BA989EB25E481B600E3EB25 /* ProfileViewController.swift in Sources */,
 				0B74FA6625DCAE7800D72DB9 /* SignUpTextField.swift in Sources */,
 				0B74FA5F25DCA21C00D72DB9 /* LoginViewController.swift in Sources */,
 				0B52DA0D25DBA40000F48EFE /* SceneDelegate.swift in Sources */,

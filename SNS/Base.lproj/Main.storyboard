@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SNS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="welcomViewContoller" id="BYZ-38-t0r" customClass="ViewController" customModule="SNS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -578,10 +578,10 @@
             </objects>
             <point key="canvasLocation" x="2516" y="810"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="8Cp-PX-sbF">
             <objects>
-                <viewController id="Grg-fb-9lK" sceneMemberID="viewController">
+                <viewController id="Grg-fb-9lK" customClass="ProfileViewController" customModule="SNS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fNZ-F5-DUY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -612,6 +612,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tpf-ux-mQe">
                                                 <rect key="frame" x="102" y="0.0" width="51" height="30"/>
                                                 <state key="normal" title="LogOut"/>
+                                                <connections>
+                                                    <action selector="didTapLogout:" destination="Grg-fb-9lK" eventType="touchUpInside" id="Ms2-BU-EyP"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xns-SF-CoW">
                                                 <rect key="frame" x="180" y="0.0" width="75" height="30"/>
@@ -658,6 +661,9 @@
                                             <segment title="Media"/>
                                             <segment title="Likes"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="showComponents:" destination="Grg-fb-9lK" eventType="valueChanged" id="wjc-xm-V21"/>
+                                        </connections>
                                     </segmentedControl>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EdH-6c-Cqh">
                                         <rect key="frame" x="0.0" y="325" width="414" height="226"/>
@@ -727,6 +733,11 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="person" catalog="system" id="KgV-Ug-hH4"/>
+                    <connections>
+                        <outlet property="likesContainer" destination="EdH-6c-Cqh" id="OMI-5P-0D6"/>
+                        <outlet property="mediaContainer" destination="v4i-zl-AmV" id="pfG-rd-Nah"/>
+                        <outlet property="postContainer" destination="Ol2-bg-7hN" id="0cS-Bz-7AA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tpp-bc-GQM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -777,8 +788,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="226"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Media" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1z-eX-HgD">
-                                <rect key="frame" x="183.5" y="102.5" width="47" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Likes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1z-eX-HgD">
+                                <rect key="frame" x="187.5" y="102.5" width="39.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -803,8 +814,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="226"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Likes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXe-2D-Pw6">
-                                <rect key="frame" x="187" y="102.5" width="40" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Media" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXe-2D-Pw6">
+                                <rect key="frame" x="184" y="102.5" width="46.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
