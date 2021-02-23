@@ -22,6 +22,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
 
         let userUid = Auth.auth().currentUser?.uid
+        
         self.databaseRef.child("User").child(userUid!).observeSingleEvent(of: .value) { ( snapshot: DataSnapshot) in
 
             self.userData = snapshot.value as? NSDictionary
@@ -30,7 +31,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
                 if snapshot.childrenCount > 0 {
                     self.post.append(snapshot.value as? NSDictionary)
+                    self.homeTableView.beginUpdates()
                     self.homeTableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: UITableView.RowAnimation.automatic)
+                    self.homeTableView.endUpdates()
                     self.activeLoading.stopAnimating()
                 }
             }) {(error) in
