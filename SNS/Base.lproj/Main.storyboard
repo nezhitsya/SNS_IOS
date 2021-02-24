@@ -345,35 +345,45 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="example" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="624-iX-uc3">
                                 <rect key="frame" x="35" y="80" width="344" height="445"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="445" id="oGZ-ck-RaT"/>
+                                </constraints>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Jd-k8-A7v">
-                                <rect key="frame" x="191.5" y="565" width="31" height="30"/>
-                                <state key="normal" title="Post"/>
-                                <connections>
-                                    <action selector="didTapPost:" destination="KLM-G4-pqa" eventType="touchUpInside" id="yuw-Rs-sxo"/>
-                                </connections>
-                            </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qJ1-o5-Ws6">
+                                <rect key="frame" x="0.0" y="759" width="414" height="49"/>
+                                <items>
+                                    <barButtonItem image="camera.fill" catalog="system" id="O2f-fv-njk"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="GcU-A1-V4e"/>
+                                    <barButtonItem title="Post" id="bxW-6J-Zbf">
+                                        <connections>
+                                            <action selector="didTapPost:" destination="KLM-G4-pqa" id="jKf-kV-70s"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DOj-Ax-fLR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="qJ1-o5-Ws6" firstAttribute="trailing" secondItem="DOj-Ax-fLR" secondAttribute="trailing" id="4Jf-pO-udK"/>
+                            <constraint firstItem="qJ1-o5-Ws6" firstAttribute="leading" secondItem="DOj-Ax-fLR" secondAttribute="leading" id="9sV-OX-2PM"/>
                             <constraint firstItem="eYR-CW-8k9" firstAttribute="leading" secondItem="DOj-Ax-fLR" secondAttribute="leading" constant="20" id="BAp-Ri-EWw"/>
                             <constraint firstItem="DOj-Ax-fLR" firstAttribute="trailing" secondItem="624-iX-uc3" secondAttribute="trailing" constant="35" id="IpE-VT-I1t"/>
-                            <constraint firstItem="DOj-Ax-fLR" firstAttribute="bottom" secondItem="0Jd-k8-A7v" secondAttribute="bottom" constant="213" id="Qy7-nW-DpG"/>
                             <constraint firstItem="624-iX-uc3" firstAttribute="top" secondItem="eYR-CW-8k9" secondAttribute="bottom" constant="20" id="TIL-LF-Eb4"/>
-                            <constraint firstItem="0Jd-k8-A7v" firstAttribute="centerX" secondItem="624-iX-uc3" secondAttribute="centerX" id="VxW-jJ-j7A"/>
-                            <constraint firstItem="0Jd-k8-A7v" firstAttribute="top" secondItem="624-iX-uc3" secondAttribute="bottom" constant="40" id="WXk-ZD-xNZ"/>
                             <constraint firstItem="624-iX-uc3" firstAttribute="leading" secondItem="DOj-Ax-fLR" secondAttribute="leading" constant="35" id="XMS-FD-2zA"/>
                             <constraint firstItem="eYR-CW-8k9" firstAttribute="top" secondItem="DOj-Ax-fLR" secondAttribute="top" constant="20" id="c1c-D1-9EI"/>
                             <constraint firstItem="624-iX-uc3" firstAttribute="leading" secondItem="eYR-CW-8k9" secondAttribute="trailing" constant="-25" id="py7-ec-i5V"/>
+                            <constraint firstItem="qJ1-o5-Ws6" firstAttribute="bottom" secondItem="DOj-Ax-fLR" secondAttribute="bottom" id="vsu-N1-bbS"/>
                             <constraint firstItem="624-iX-uc3" firstAttribute="centerX" secondItem="I8X-6q-Qgv" secondAttribute="centerX" id="zj6-1m-MaX"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="postTextView" destination="624-iX-uc3" id="MU5-cT-h47"/>
+                        <outlet property="postToolbar" destination="qJ1-o5-Ws6" id="TgC-JQ-DEo"/>
+                        <outlet property="toolbarBottomConstraint" destination="vsu-N1-bbS" id="c4d-vU-jge"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sZ0-gC-Neh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -892,6 +902,7 @@
         <image name="arrow.right" catalog="system" width="128" height="98"/>
         <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="106"/>
         <image name="bell" catalog="system" width="128" height="124"/>
+        <image name="camera.fill" catalog="system" width="128" height="94"/>
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="house" catalog="system" width="128" height="106"/>

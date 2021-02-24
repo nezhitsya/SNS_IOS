@@ -12,7 +12,10 @@ import FirebaseDatabase
 class PostViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var postTextView: UITextView!
+    @IBOutlet weak var postToolbar: UIToolbar!
+    @IBOutlet weak var toolbarBottomConstraint: NSLayoutConstraint!
     
+    var toolbarBottomConstraintInitialValue = CGFloat()
     var databaseRef = Database.database().reference()
 
     override func viewDidLoad() {
@@ -24,8 +27,26 @@ class PostViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
         postTextView.delegate = self
     }
     
-    @IBAction func didTapCancel(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+    override func viewDidAppear(_ animated: Bool) {
+        enableKeyboardHideOnTop()
+        
+        self.toolbarBottomConstraintInitialValue = toolbarBottomConstraint.constant
+    }
+    
+    private func enableKeyboardHideOnTap() {
+        
+    }
+    
+    func hideKeyboard() {
+        self.view.endEditing(true)
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -36,6 +57,10 @@ class PostViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return false
+    }
+    
+    @IBAction func didTapCancel(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func didTapPost(_ sender: Any) {
