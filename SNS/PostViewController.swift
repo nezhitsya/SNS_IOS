@@ -20,6 +20,8 @@ class PostViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.postToolbar.isHidden = true
 
         postTextView.textContainerInset = UIEdgeInsets(top: 30, left: 20, bottom: 20, right: 20)
         postTextView.text = "text ..."
@@ -28,25 +30,43 @@ class PostViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        enableKeyboardHideOnTop()
+        enableKeyboardHideOnTap()
         
         self.toolbarBottomConstraintInitialValue = toolbarBottomConstraint.constant
     }
     
     private func enableKeyboardHideOnTap() {
+        NotificationCenter.default.addObserver(self, selector: #selector(PostViewController.keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(PostViewController.keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PostViewController.hideKeyboard))
+        self.view.addGestureRecognizer(tap)
     }
     
-    func hideKeyboard() {
+    @objc func hideKeyboard() {
         self.view.endEditing(true)
     }
     
-    func keyboardWillHide(notification: NSNotification) {
+    @objc func keyboardWillHide(notification: NSNotification) {
+        let duration = notification.userInfo![UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
         
+        UIView.animate(withDuration: duration) {
+            self.toolbarBottomConstraint.constant = self.toolbarBottomConstraintInitialValue
+            self.postToolbar.isHidden = true
+            self.view.layoutIfNeeded()
+        }
     }
     
-    func keyboardWillShow(notification: NSNotification) {
+    @objc func keyboardWillShow(notification: NSNotification) {
+        let info = notification.userInfo!
+        let keyboardFrame: CGRect = (info[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let duration = notification.userInfo![UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
         
+        UIView.animate(withDuration: duration) {
+            self.toolbarBottomConstraint.constant = keyboardFrame.size.height
+            self.postToolbar.isHidden = false
+            self.view.layoutIfNeeded()
+        }
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
