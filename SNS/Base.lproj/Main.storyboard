@@ -300,7 +300,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" id="GUp-PV-5T4">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" id="GUp-PV-5T4">
                                 <rect key="frame" x="0.0" y="426" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
@@ -595,7 +595,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bQM-Jt-WoS">
                                 <rect key="frame" x="0.0" y="262" width="414" height="551"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="ew6-wO-2Eu">
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="ew6-wO-2Eu">
                                         <rect key="frame" x="8" y="8" width="125" height="125"/>
                                         <gestureRecognizers/>
                                         <constraints>
@@ -687,6 +687,10 @@
                                             <segue destination="cWf-Eg-2SI" kind="embed" id="e1O-F0-zG0"/>
                                         </connections>
                                     </containerView>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="mKx-Kt-RGB">
+                                        <rect key="frame" x="60.5" y="60.5" width="20" height="20"/>
+                                        <color key="color" systemColor="systemIndigoColor"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -697,6 +701,7 @@
                                     <constraint firstItem="bPc-eF-CR5" firstAttribute="leading" secondItem="361-F4-tc8" secondAttribute="leading" id="HzS-Up-Zz1"/>
                                     <constraint firstItem="EdH-6c-Cqh" firstAttribute="leading" secondItem="bQM-Jt-WoS" secondAttribute="leading" id="MKB-7s-4wH"/>
                                     <constraint firstItem="361-F4-tc8" firstAttribute="top" secondItem="bPc-eF-CR5" secondAttribute="bottom" constant="8" symbolic="YES" id="Ng7-VZ-DDR"/>
+                                    <constraint firstItem="mKx-Kt-RGB" firstAttribute="centerX" secondItem="ew6-wO-2Eu" secondAttribute="centerX" id="QKQ-An-Q0C"/>
                                     <constraint firstItem="ew6-wO-2Eu" firstAttribute="leading" secondItem="bQM-Jt-WoS" secondAttribute="leading" constant="8" id="QtR-HO-xdg"/>
                                     <constraint firstItem="bGH-PZ-Deu" firstAttribute="centerX" secondItem="bPc-eF-CR5" secondAttribute="centerX" id="TnC-lr-YWD"/>
                                     <constraint firstItem="iWD-Sy-elp" firstAttribute="top" secondItem="bQM-Jt-WoS" secondAttribute="top" id="UJa-wa-05c"/>
@@ -721,6 +726,7 @@
                                     <constraint firstItem="Ol2-bg-7hN" firstAttribute="leading" secondItem="bQM-Jt-WoS" secondAttribute="leading" id="usC-Rn-dYE"/>
                                     <constraint firstItem="Ol2-bg-7hN" firstAttribute="top" secondItem="bGH-PZ-Deu" secondAttribute="bottom" constant="8" symbolic="YES" id="wzO-8k-iuN"/>
                                     <constraint firstItem="ew6-wO-2Eu" firstAttribute="top" secondItem="bQM-Jt-WoS" secondAttribute="top" constant="8" id="x94-fo-LyJ"/>
+                                    <constraint firstItem="mKx-Kt-RGB" firstAttribute="centerY" secondItem="ew6-wO-2Eu" secondAttribute="centerY" id="z7R-Iv-0mM"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -739,6 +745,7 @@
                     <tabBarItem key="tabBarItem" title="" image="person" catalog="system" id="KgV-Ug-hH4"/>
                     <connections>
                         <outlet property="about" destination="bPc-eF-CR5" id="4ma-vT-1ZG"/>
+                        <outlet property="imageLoader" destination="mKx-Kt-RGB" id="1Cj-LH-rJN"/>
                         <outlet property="likesContainer" destination="EdH-6c-Cqh" id="OMI-5P-0D6"/>
                         <outlet property="mediaContainer" destination="v4i-zl-AmV" id="pfG-rd-Nah"/>
                         <outlet property="name" destination="GEc-Q9-frX" id="gFP-Bc-Z7n"/>
@@ -912,6 +919,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

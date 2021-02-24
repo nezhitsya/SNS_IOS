@@ -19,6 +19,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var nickname: UILabel!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var about: UITextField!
+    @IBOutlet weak var imageLoader: UIActivityIndicatorView!
     
     var databaseRef = Database.database().reference()
     var storageRef = Storage.storage().reference()
@@ -48,10 +49,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
 
                 self.setProfilePicture(imageView: self.profilePicture, imageToSet: UIImage(data: data)!)
             }
+            self.imageLoader.stopAnimating()
         }
     }
     
     @IBAction func didTapProfilePicture(_ sender: UITapGestureRecognizer) {
+        print("TAPPAPAPPAPPAP!!")
         let myActionSheet = UIAlertController(title: "Profile Picture", message: "Select", preferredStyle: UIAlertController.Style.actionSheet)
         let viewPicture = UIAlertAction(title: "Picture", style: UIAlertAction.Style.default) { (action) in
             
@@ -138,7 +141,26 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String: AnyObject]?) {
         
+        self.imageLoader.startAnimating()
         setProfilePicture(imageView: self.profilePicture, imageToSet: image)
+        
+        let userUid = Auth.auth().currentUser?.uid
+        let imageData = Data()
+        if imageData == self.profilePicture.image!.pngData()! {
+            let profilePicStorageRef = storageRef.child("User/\(userUid!)/profilePic")
+            profilePicStorageRef.putData(imageData, metadata: nil) { metadata, error in
+                
+                if(error == nil) {
+                    profilePicStorageRef.downloadURL { (url, error) in
+                        if(error == nil) {
+                            self.databaseRef.child("User").child(userUid!).child("profilePic").setValue(url!.absoluteString)
+                        }
+                    }
+                }
+                self.imageLoader.stopAnimating()
+            }
+        }
+        self.dismiss(animated: true, completion: nil)
     }
     
     internal func setProfilePicture(imageView: UIImageView, imageToSet: UIImage) {
