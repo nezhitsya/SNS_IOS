@@ -42,7 +42,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
 
-        self.homeTableView.rowHeight = 100
+        self.homeTableView.rowHeight = 120
         self.homeTableView.estimatedRowHeight = 140
     }
 
