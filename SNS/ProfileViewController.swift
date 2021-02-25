@@ -138,7 +138,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         sender.view?.removeFromSuperview()
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String: AnyObject]?) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         
         self.imageLoader.startAnimating()
         setProfilePicture(imageView: self.profilePicture, imageToSet: image)
