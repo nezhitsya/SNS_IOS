@@ -8,8 +8,9 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseStorage
 
-class PostViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
+class PostViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var postTextView: UITextView!
     @IBOutlet weak var postToolbar: UIToolbar!
@@ -17,6 +18,7 @@ class PostViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
     
     var toolbarBottomConstraintInitialValue = CGFloat()
     var databaseRef = Database.database().reference()
+    var imagePicker = UIImagePickerController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,20 +81,95 @@ class PostViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
         return false
     }
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String: AnyObject]?) {
+        var attributedString = NSMutableAttributedString()
+        
+        if(self.postTextView.text.count > 0) {
+            attributedString = NSMutableAttributedString(string: self.postTextView.text)
+        } else {
+            attributedString = NSMutableAttributedString(string: "text...\n")
+        }
+        
+        let textAttachment = NSTextAttachment()
+        textAttachment.image = image
+        
+        let oldWith: CGFloat = textAttachment.image!.size.width
+        let scaleFactor: CGFloat = oldWith / (postTextView.frame.size.width - 50)
+        textAttachment.image = UIImage(cgImage: textAttachment.image!.cgImage!, scale: scaleFactor, orientation: .up)
+        
+        let attrStringWithImage = NSAttributedString(attachment: textAttachment)
+        attributedString.append(attrStringWithImage)
+        
+        postTextView.attributedText = attributedString
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func didTapCancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func didTapPost(_ sender: Any) {
         
-        if(postTextView.text.count > 0) {
-            let key = self.databaseRef.child("posts").childByAutoId().key
-            let user = Auth.auth().currentUser
-            let childUpdates = ["/posts/\(user!.uid)/\(key!)/text": postTextView.text!, "/posts/\(user!.uid)/\(key!)/timestamp": "\(NSDate().timeIntervalSince1970)"]
+        var imageArray = [AnyObject]()
+        
+        self.postTextView.attributedText.enumerateAttribute(NSAttributedString.Key.attachment, in: NSMakeRange(0, self.postTextView.text.count), options: []) { (value, range, true) in
             
-            self.databaseRef.updateChildValues(childUpdates)
-            
+            if(value is NSTextAttachment) {
+                let attachment = value as! NSTextAttachment
+                var image: UIImage? = nil
+                
+                if(attachment.image != nil) {
+                    image = attachment.image!
+                    imageArray.append(image!)
+                } else {
+                    print("이미지를 삽입해주세요.")
+                }
+            }
+        }
+        
+        let user = Auth.auth().currentUser
+        let postLength = postTextView.text.count
+        let numImages = imageArray.count
+        let key = self.databaseRef.child("posts").childByAutoId().key
+        let storageRef = Storage.storage().reference()
+        let pictureStorageRef = storageRef.child("User/\(user!.uid)/media/\(key!)")
+        let lowResImageData = UIImage().jpegData(compressionQuality: 0.50)
+        
+        if(postLength > 0 && numImages > 0) {
+            pictureStorageRef.putData(lowResImageData!, metadata: nil) { metadata, error in
+                
+                if(error == nil) {
+                    pictureStorageRef.downloadURL { (url, error) in
+                        let childUpdates = ["/posts/\(user!.uid)/\(key!)/text":self.postTextView.text!, "/posts/\(user!.uid)/\(key!)/timestamp":"\(NSDate().timeIntervalSince1970)", "/posts/\(user!.uid)/\(key!)/picture":url!.absoluteString]
+                        self.databaseRef.updateChildValues(childUpdates)
+                    }
+                }
+            }
             dismiss(animated: true, completion: nil)
+        } else if(postLength > 0) {
+            let childUpdates = ["/posts/\(user!.uid)/\(key!)/text":self.postTextView.text!, "/posts/\(user!.uid)/\(key!)/timestamp":"\(NSDate().timeIntervalSince1970)"]
+            self.databaseRef.updateChildValues(childUpdates)
+            dismiss(animated: true, completion: nil)
+        } else if(numImages > 0) {
+            pictureStorageRef.putData(lowResImageData!, metadata: nil) { metadata, error in
+                
+                if(error == nil) {
+                    pictureStorageRef.downloadURL { (url, error) in
+                        let childUpdates = ["/posts/\(user!.uid)/\(key!)/timestamp":"\(NSDate().timeIntervalSince1970)", "/posts/\(user!.uid)/\(key!)/picture":url!.absoluteString]
+                        self.databaseRef.updateChildValues(childUpdates)
+                    }
+                }
+            }
+            dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func didTapCamera(_ sender: AnyObject) {
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
+            self.imagePicker.delegate = self
+            self.imagePicker.sourceType = .savedPhotosAlbum
+            self.imagePicker.allowsEditing = true
+            self.present(self.imagePicker, animated: true, completion: nil)
         }
     }
     
