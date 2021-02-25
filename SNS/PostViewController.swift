@@ -23,7 +23,7 @@ class PostViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.postToolbar.isHidden = true
+        self.postToolbar.isHidden = false
 
         postTextView.textContainerInset = UIEdgeInsets(top: 30, left: 20, bottom: 20, right: 20)
         postTextView.text = "text ..."
@@ -54,7 +54,7 @@ class PostViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
         
         UIView.animate(withDuration: duration) {
             self.toolbarBottomConstraint.constant = self.toolbarBottomConstraintInitialValue
-            self.postToolbar.isHidden = true
+            self.postToolbar.isHidden = false
             self.view.layoutIfNeeded()
         }
     }
@@ -66,7 +66,7 @@ class PostViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
         
         UIView.animate(withDuration: duration) {
             self.toolbarBottomConstraint.constant = keyboardFrame.size.height
-            self.postToolbar.isHidden = false
+            self.postToolbar.isHidden = true
             self.view.layoutIfNeeded()
         }
     }

@@ -54,7 +54,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func didTapProfilePicture(_ sender: UITapGestureRecognizer) {
-        print("TAPPAPAPPAPPAP!!")
         let myActionSheet = UIAlertController(title: "Profile Picture", message: "Select", preferredStyle: UIAlertController.Style.actionSheet)
         let viewPicture = UIAlertAction(title: "Picture", style: UIAlertAction.Style.default) { (action) in
             
