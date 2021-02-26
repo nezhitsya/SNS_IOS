@@ -230,7 +230,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="demo" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jvx-ov-ntI">
+                                                <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" text="demo" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jvx-ov-ntI">
                                                     <rect key="frame" x="76" y="37" width="318" height="49"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>

@@ -60,9 +60,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         let cell: HomeViewTableViewCell = tableView.dequeueReusableCell(withIdentifier: "HomeViewTableViewCell", for: indexPath) as! HomeViewTableViewCell
         let posts = post[(self.post.count - 1) - (indexPath.row)]!["text"] as! String
-        let imaegTap = UIGestureRecognizer(target: self, action: #selector(self.didTapImage))
+        let imageTap = UIGestureRecognizer(target: self, action: #selector(self.didTapImage))
         
-        cell.postImage.addGestureRecognizer(imaegTap)
+        cell.postImage.addGestureRecognizer(imageTap)
         
         if(post[(self.post.count - 1) - (indexPath.row)]!["picture"] != nil) {
             cell.postImage.isHidden = false
