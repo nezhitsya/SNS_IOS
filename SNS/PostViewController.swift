@@ -135,7 +135,8 @@ class PostViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
         let key = self.databaseRef.child("posts").childByAutoId().key
         let storageRef = Storage.storage().reference()
         let pictureStorageRef = storageRef.child("User/\(user!.uid)/media/\(key!)")
-        let lowResImageData = UIImage().jpegData(compressionQuality: 0.50)
+        let image = imageArray[0] as! UIImage
+        let lowResImageData = image.jpegData(compressionQuality: 0.50)
         
         if(postLength > 0 && numImages > 0) {
             pictureStorageRef.putData(lowResImageData!, metadata: nil) { metadata, error in
