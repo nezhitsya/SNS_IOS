@@ -13,6 +13,8 @@ class HomeViewTableViewCell: UITableViewCell {
     @IBOutlet weak var nickname: UILabel!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var post: UITextView!
+    @IBOutlet weak var postImage: UIImageView!
+    @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()

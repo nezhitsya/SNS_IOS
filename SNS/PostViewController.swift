@@ -81,7 +81,9 @@ class PostViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
         return false
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String: AnyObject]?) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         var attributedString = NSMutableAttributedString()
         
         if(self.postTextView.text.count > 0) {

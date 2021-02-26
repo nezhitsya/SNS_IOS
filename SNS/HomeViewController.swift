@@ -8,12 +8,14 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import SDWebImage
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var databaseRef = Database.database().reference()
     var post: [NSDictionary?] = []
     var userData: AnyObject? = .none
+    var defaultImgaeViewHeightConstraint: CGFloat = 70.0
     
     @IBOutlet weak var homeTableView: UITableView!
     @IBOutlet weak var activeLoading: UIActivityIndicatorView!
@@ -42,8 +44,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
 
-        self.homeTableView.rowHeight = 120
-        self.homeTableView.estimatedRowHeight = 140
+        self.homeTableView.rowHeight = UITableView.automaticDimension
+        self.homeTableView.estimatedRowHeight = 215
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -57,13 +59,50 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell: HomeViewTableViewCell = tableView.dequeueReusableCell(withIdentifier: "HomeViewTableViewCell", for: indexPath) as! HomeViewTableViewCell
-
         let posts = post[(self.post.count - 1) - (indexPath.row)]!["text"] as! String
+        let imaegTap = UIGestureRecognizer(target: self, action: #selector(self.didTapImage))
+        
+        cell.postImage.addGestureRecognizer(imaegTap)
+        
+        if(post[(self.post.count - 1) - (indexPath.row)]!["picture"] != nil) {
+            cell.postImage.isHidden = false
+            cell.imageViewHeightConstraint.constant = defaultImgaeViewHeightConstraint
+            
+            let picture = post[(self.post.count - 1) - (indexPath.row)]!["picture"] as! String
+            let url = NSURL(string: picture)
+            
+            cell.postImage.layer.cornerRadius = 10
+            cell.postImage.layer.borderWidth = 2
+            cell.postImage.layer.borderColor = UIColor.white.cgColor
+            cell.postImage!.sd_setImage(with: url as URL?, placeholderImage: UIImage(named: "Logo"))
+        } else {
+            cell.postImage.isHidden = true
+            cell.imageViewHeightConstraint.constant = 0
+        }
 
         let value = self.userData as! NSDictionary
         cell.configure(profilePic: nil, name: value["nickname"] as! String, nickname: value["nickname"] as! String, post: posts)
 
         return cell
+    }
+    
+    @objc func didTapImage(sender: UITapGestureRecognizer) {
+        let imageView = sender.view as! UIImageView
+        let newImageView = UIImageView(image: imageView.image)
+        
+        newImageView.frame = self.view.frame
+        newImageView.backgroundColor = UIColor.black
+        newImageView.contentMode = .scaleAspectFit
+        newImageView.isUserInteractionEnabled = true
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissFullScreenImage))
+        
+        newImageView.addGestureRecognizer(tap)
+        self.view.addSubview(newImageView)
+    }
+    
+    @objc func dismissFullScreenImage(sender: UITapGestureRecognizer) {
+        sender.view?.removeFromSuperview()
     }
 
     /*
