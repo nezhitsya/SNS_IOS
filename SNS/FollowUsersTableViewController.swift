@@ -68,7 +68,7 @@ class FollowUsersTableViewController: UITableViewController, UISearchResultsUpda
         }
         
         cell.textLabel?.text = user?["nickname"] as? String
-        cell.detailTextLabel?.text = user?["nickname"] as? String
+        cell.detailTextLabel?.text = user?["name"] as? String
 
         return cell
     }
