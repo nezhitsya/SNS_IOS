@@ -24,7 +24,7 @@ class FollowUsersTableViewController: UITableViewController, UISearchResultsUpda
         super.viewDidLoad()
         
         searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
+        searchController.obscuresBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
         
@@ -47,24 +47,41 @@ class FollowUsersTableViewController: UITableViewController, UISearchResultsUpda
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return filteredUsers.count
+        }
+        return self.usersArray.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let user: NSDictionary?
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+            user = filteredUsers[indexPath.row]
+        } else {
+            user = self.usersArray[indexPath.row]
+        }
+        
+        cell.textLabel?.text = user?["nickname"] as? String
+        cell.detailTextLabel?.text = user?["nickname"] as? String
 
         return cell
     }
-    */
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "ShowUser" {
+//            if let indexPath = tableView.indexPathForSelectedRow {
+//                let user = usersArray[indexPath.row]
+//                let controller = segue.destination as? UserProfileViewController
+//                controller?.otherUser = user
+//            }
+//        }
+//    }
 
     /*
     // Override to support conditional editing of the table view.
