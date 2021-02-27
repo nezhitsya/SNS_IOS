@@ -10,6 +10,8 @@ import Firebase
 
 class FollowUsersTableViewController: UITableViewController, UISearchResultsUpdating {
     
+    @IBOutlet var followUsersTableView: UITableView!
+    
     let searchController = UISearchController(searchResultsController: nil)
     
     var user: User?
@@ -25,6 +27,17 @@ class FollowUsersTableViewController: UITableViewController, UISearchResultsUpda
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
+        
+        databaseRef.child("User").queryOrdered(byChild: "nickname").observe(.childAdded, with: { (snapshot) in
+            
+            let key = snapshot.key
+            let snapshot = snapshot.value as? NSDictionary
+            
+            if(key != self.user?.uid) {
+                self.usersArray.append(snapshot)
+                self.followUsersTableView.insertRows(at: [IndexPath(row: self.usersArray.count - 1, section: 0)], with: UITableView.RowAnimation.automatic)
+            }
+        })
 
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -87,6 +100,20 @@ class FollowUsersTableViewController: UITableViewController, UISearchResultsUpda
         return true
     }
     */
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        filterContent(searchText: self.searchController.searchBar.text!)
+    }
+    
+    func filterContent(searchText: String) {
+        self.filteredUsers = self.usersArray.filter{ user in
+            
+            let username = user!["nickname"] as? String
+            
+            return(username?.lowercased().contains(searchText.lowercased()))!
+        }
+    }
     
     @IBAction func didTapDismiss(_ sender: Any) {
         dismiss(animated: true, completion: nil)
