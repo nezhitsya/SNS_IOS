@@ -35,7 +35,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         self.databaseRef.child("User").child(userUid!).observeSingleEvent(of: .value) { ( snapshot: DataSnapshot) in
             
             let value = snapshot.value as? NSDictionary
-            self.name.text = value?["nickname"] as? String
+            self.name.text = value?["name"] as? String
             self.nickname.text = value?["nickname"] as? String
             
             if(value?["description"] != nil) {
