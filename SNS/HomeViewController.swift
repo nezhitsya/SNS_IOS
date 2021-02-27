@@ -81,7 +81,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
 
         let value = self.userData as! NSDictionary
-        cell.configure(profilePic: nil, name: value["nickname"] as! String, nickname: value["nickname"] as! String, post: posts)
+        cell.configure(profilePic: nil, name: value["name"] as! String, nickname: value["nickname"] as! String, post: posts)
 
         return cell
     }
