@@ -382,7 +382,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Users" id="lDH-WN-ZhZ">
-                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="98j-1D-J5C"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="98j-1D-J5C">
+                            <connections>
+                                <action selector="didTapDismiss:" destination="2id-EO-KP8" id="jm8-Nj-Ign"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jgr-BQ-BCg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

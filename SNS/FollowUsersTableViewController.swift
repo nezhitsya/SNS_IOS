@@ -6,16 +6,28 @@
 //
 
 import UIKit
+import Firebase
 
-class FollowUsersTableViewController: UITableViewController {
+class FollowUsersTableViewController: UITableViewController, UISearchResultsUpdating {
+    
+    let searchController = UISearchController(searchResultsController: nil)
+    
+    var user: User?
+    var usersArray = [NSDictionary?]()
+    var filteredUsers = [NSDictionary?]()
+    var testArray = [NSDictionary?]()
+    var databaseRef = Database.database().reference()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        tableView.tableHeaderView = searchController.searchBar
 
-        // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
@@ -75,7 +87,11 @@ class FollowUsersTableViewController: UITableViewController {
         return true
     }
     */
-
+    
+    @IBAction func didTapDismiss(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 
