@@ -13,6 +13,7 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var email: SignUpTextField!
     @IBOutlet weak var password: SignUpTextField!
+    @IBOutlet weak var name: SignUpTextField!
     @IBOutlet weak var signUp: UIButton!
     
     var databaseRef = Database.database().reference()
@@ -38,6 +39,8 @@ class SignUpViewController: UIViewController {
                     
                     if(error == nil) {
                         self.databaseRef.child("User").child((user?.user.uid)!).child("email").setValue(self.email.text!)
+                        
+                        self.databaseRef.child("User").child((user?.user.uid)!).child("name").setValue(self.name.text!)
                         
                         self.performSegue(withIdentifier: "HandleViewSegue", sender: nil)
                     }

@@ -484,7 +484,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zUE-eO-inm" customClass="SignUpTextField" customModule="SNS" customModuleProvider="target">
                                 <rect key="frame" x="58" y="190" width="277" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="gVg-6U-OLL"/>
+                                    <constraint firstAttribute="height" constant="34" id="4mt-DU-YIg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
@@ -505,9 +505,6 @@
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WDy-74-SFD" customClass="SignUpTextField" customModule="SNS" customModuleProvider="target">
                                 <rect key="frame" x="58" y="261" width="277" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="QpO-2g-sgd"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                 <userDefinedRuntimeAttributes>
@@ -528,8 +525,8 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qi3-O6-k4U">
                                 <rect key="frame" x="320" y="751" width="74" height="57"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="57" id="gE0-Pk-xA1"/>
-                                    <constraint firstAttribute="width" constant="74" id="hmm-BG-FbK"/>
+                                    <constraint firstAttribute="height" constant="57" id="4rv-Fn-8OM"/>
+                                    <constraint firstAttribute="width" constant="74" id="Hyb-8S-dVh"/>
                                 </constraints>
                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <size key="titleShadowOffset" width="1" height="1"/>
@@ -541,26 +538,51 @@
                                     <segue destination="nFk-6Q-iPf" kind="presentation" identifier="HandleViewSegue" id="eYb-Vc-uzZ"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q0m-1g-6S3" customClass="SignUpTextField" customModule="SNS" customModuleProvider="target">
+                                <rect key="frame" x="58" y="330" width="277" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="277" id="IEK-3U-Sbe"/>
+                                    <constraint firstAttribute="height" constant="34" id="VS4-yh-kzd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                        <color key="value" name="Basic"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                        <color key="value" red="1" green="0.82804074130000005" blue="0.35102809299999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didTextChange:" destination="usK-JS-WhC" eventType="editingChanged" id="3V5-ED-NDh"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nKO-fT-lfr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="y7t-fn-SVP" firstAttribute="centerX" secondItem="70n-Wm-SU7" secondAttribute="centerX" id="3N5-6X-sxq"/>
-                            <constraint firstItem="y7t-fn-SVP" firstAttribute="top" secondItem="nKO-fT-lfr" secondAttribute="top" constant="60" id="5gA-9Y-DUb"/>
-                            <constraint firstItem="zUE-eO-inm" firstAttribute="top" secondItem="nKO-fT-lfr" secondAttribute="top" constant="190" id="BvL-Rn-95J"/>
-                            <constraint firstItem="WDy-74-SFD" firstAttribute="leading" secondItem="zUE-eO-inm" secondAttribute="leading" id="E2z-Lw-JRl"/>
-                            <constraint firstItem="qi3-O6-k4U" firstAttribute="bottom" secondItem="nKO-fT-lfr" secondAttribute="bottom" id="I02-JC-R1o"/>
-                            <constraint firstItem="zUE-eO-inm" firstAttribute="leading" secondItem="nKO-fT-lfr" secondAttribute="leading" constant="58" id="KC1-jp-HsE"/>
-                            <constraint firstItem="qi3-O6-k4U" firstAttribute="bottom" secondItem="nKO-fT-lfr" secondAttribute="bottom" id="RZc-HU-k3J"/>
-                            <constraint firstItem="WDy-74-SFD" firstAttribute="trailing" secondItem="zUE-eO-inm" secondAttribute="trailing" id="VZa-cs-j2w"/>
-                            <constraint firstItem="nKO-fT-lfr" firstAttribute="trailing" secondItem="zUE-eO-inm" secondAttribute="trailing" constant="79" id="Zmm-mn-5xr"/>
-                            <constraint firstItem="qi3-O6-k4U" firstAttribute="bottom" secondItem="nKO-fT-lfr" secondAttribute="bottom" id="bpT-ej-2Jn"/>
-                            <constraint firstItem="WDy-74-SFD" firstAttribute="top" secondItem="zUE-eO-inm" secondAttribute="bottom" constant="37" id="luc-Qr-5fb"/>
-                            <constraint firstItem="nKO-fT-lfr" firstAttribute="trailing" secondItem="qi3-O6-k4U" secondAttribute="trailing" constant="20" id="n8k-3q-Doj"/>
+                            <constraint firstItem="Q0m-1g-6S3" firstAttribute="top" secondItem="70n-Wm-SU7" secondAttribute="top" constant="330" id="32X-Ye-1Aa"/>
+                            <constraint firstItem="WDy-74-SFD" firstAttribute="top" secondItem="zUE-eO-inm" secondAttribute="bottom" constant="37" id="6HG-WE-QZ6"/>
+                            <constraint firstItem="Q0m-1g-6S3" firstAttribute="top" secondItem="WDy-74-SFD" secondAttribute="bottom" constant="35" id="6hu-oG-XZ5"/>
+                            <constraint firstItem="zUE-eO-inm" firstAttribute="top" secondItem="70n-Wm-SU7" secondAttribute="top" constant="190" id="8n6-aV-scB"/>
+                            <constraint firstItem="Q0m-1g-6S3" firstAttribute="trailing" secondItem="zUE-eO-inm" secondAttribute="trailing" id="DJj-X6-wq5"/>
+                            <constraint firstItem="Q0m-1g-6S3" firstAttribute="leading" secondItem="nKO-fT-lfr" secondAttribute="leading" constant="58" id="LCl-sU-Hul"/>
+                            <constraint firstItem="y7t-fn-SVP" firstAttribute="centerX" secondItem="70n-Wm-SU7" secondAttribute="centerX" id="Qcv-jE-ms5"/>
+                            <constraint firstItem="Q0m-1g-6S3" firstAttribute="trailing" secondItem="WDy-74-SFD" secondAttribute="trailing" id="R1v-qy-Q4H"/>
+                            <constraint firstItem="Q0m-1g-6S3" firstAttribute="leading" secondItem="WDy-74-SFD" secondAttribute="leading" id="T66-IS-a1u"/>
+                            <constraint firstItem="zUE-eO-inm" firstAttribute="top" secondItem="y7t-fn-SVP" secondAttribute="bottom" constant="82" id="udo-Hf-rGt"/>
+                            <constraint firstItem="Q0m-1g-6S3" firstAttribute="leading" secondItem="zUE-eO-inm" secondAttribute="leading" id="vtw-hG-Ph3"/>
+                            <constraint firstItem="nKO-fT-lfr" firstAttribute="trailing" secondItem="qi3-O6-k4U" secondAttribute="trailing" constant="20" id="xPl-rU-EZq"/>
+                            <constraint firstItem="qi3-O6-k4U" firstAttribute="bottom" secondItem="nKO-fT-lfr" secondAttribute="bottom" id="zeH-lL-sRL"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="email" destination="zUE-eO-inm" id="sZG-K4-B9X"/>
+                        <outlet property="name" destination="Q0m-1g-6S3" id="qla-aY-SSp"/>
                         <outlet property="password" destination="WDy-74-SFD" id="Zc9-0t-tDm"/>
                         <outlet property="signUp" destination="qi3-O6-k4U" id="A38-mr-S7W"/>
                     </connections>
