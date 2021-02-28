@@ -39,7 +39,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             self.nickname.text = value?["nickname"] as? String
             
             if(value?["description"] != nil) {
-                self.about.text = value?["about"] as? String
+                self.about.text = value?["description"] as? String
             }
 
             if(value?["profilePic"] != nil) {
