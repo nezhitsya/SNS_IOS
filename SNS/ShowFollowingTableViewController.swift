@@ -6,40 +6,44 @@
 //
 
 import UIKit
+import Firebase
 
 class ShowFollowingTableViewController: UITableViewController {
+    
+    var listFollowers = [NSDictionary?]()
+    var databaseRef = Database.database().reference()
+    var user: User?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        databaseRef.child("followers").child(self.user!.uid).observe(.childAdded, with: { (snapshot) in
+            
+            let snapshot = snapshot.value as? NSDictionary
+            
+            self.listFollowers.append(snapshot)
+            
+        })
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return listFollowers.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "followersUserCell", for: indexPath)
 
-        // Configure the cell...
+        cell.textLabel?.text = self.listFollowers[indexPath.row]?["nickname"] as? String
+        cell.detailTextLabel?.text = self.listFollowers[indexPath.row]?["name"] as? String
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
