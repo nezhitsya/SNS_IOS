@@ -10,18 +10,18 @@ import Firebase
 
 class ShowFollowingTableViewController: UITableViewController {
     
-    var listFollowers = [NSDictionary?]()
+    var listFollowing = [NSDictionary?]()
     var databaseRef = Database.database().reference()
     var user: User?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        databaseRef.child("followers").child(self.user!.uid).observe(.childAdded, with: { (snapshot) in
+        databaseRef.child("following").child(self.user!.uid).queryOrdered(byChild: "nickname").observe(.childAdded, with: { (snapshot) in
             
             let snapshot = snapshot.value as? NSDictionary
             
-            self.listFollowers.append(snapshot)
+            self.listFollowing.append(snapshot)
             
         })
     }
@@ -33,14 +33,14 @@ class ShowFollowingTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listFollowers.count
+        return listFollowing.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "followersUserCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "followingUserCell", for: indexPath)
 
-        cell.textLabel?.text = self.listFollowers[indexPath.row]?["nickname"] as? String
-        cell.detailTextLabel?.text = self.listFollowers[indexPath.row]?["name"] as? String
+        cell.textLabel?.text = self.listFollowing[indexPath.row]?["nickname"] as? String
+        cell.detailTextLabel?.text = self.listFollowing[indexPath.row]?["name"] as? String
 
         return cell
     }
