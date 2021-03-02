@@ -10,6 +10,8 @@ import Firebase
 
 class ShowFollowersTableViewController: UITableViewController {
     
+    @IBOutlet weak var followersTableView: UITableView!
+    
     var listFollowers = [NSDictionary?]()
     var databaseRef = Database.database().reference()
     var user: User?
@@ -23,6 +25,7 @@ class ShowFollowersTableViewController: UITableViewController {
             
             self.listFollowers.append(snapshot)
             
+            self.followersTableView.insertRows(at: [IndexPath(row: self.listFollowers.count - 1, section: 0)], with: UITableView.RowAnimation.automatic)
         })
     }
 
