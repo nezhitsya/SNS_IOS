@@ -147,19 +147,17 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         let userUid = Auth.auth().currentUser?.uid
         let imageData = Data()
-        if imageData == self.profilePicture.image!.pngData()! {
-            let profilePicStorageRef = storageRef.child("User/\(userUid!)/profilePic")
-            profilePicStorageRef.putData(imageData, metadata: nil) { metadata, error in
-                
-                if(error == nil) {
-                    profilePicStorageRef.downloadURL { (url, error) in
-                        if(error == nil) {
-                            self.databaseRef.child("User").child(userUid!).child("profilePic").setValue(url!.absoluteString)
-                        }
+        let profilePicStorageRef = storageRef.child("User/\(userUid!)/profilePic")
+        profilePicStorageRef.putData(imageData, metadata: nil) { metadata, error in
+            
+            if(error == nil) {
+                profilePicStorageRef.downloadURL { (url, error) in
+                    if(error == nil) {
+                        self.databaseRef.child("User").child(userUid!).child("profilePic").setValue(url!.absoluteString)
                     }
                 }
-                self.imageLoader.stopAnimating()
             }
+            self.imageLoader.stopAnimating()
         }
         self.dismiss(animated: true, completion: nil)
     }

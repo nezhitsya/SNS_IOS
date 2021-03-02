@@ -63,6 +63,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let imageTap = UIGestureRecognizer(target: self, action: #selector(self.didTapImage))
         
         cell.postImage.addGestureRecognizer(imageTap)
+        cell.addGestureRecognizer(imageTap)
         
         if(post[(self.post.count - 1) - (indexPath.row)]!["picture"] != nil) {
             cell.postImage.isHidden = false
