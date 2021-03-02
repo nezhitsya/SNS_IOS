@@ -19,6 +19,10 @@ class PostViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
     var toolbarBottomConstraintInitialValue = CGFloat()
     var databaseRef = Database.database().reference()
     var imagePicker = UIImagePickerController()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,17 +56,17 @@ class PostViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
     @objc func keyboardWillHide(notification: NSNotification) {
         let duration = notification.userInfo![UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
         
-        UIView.animate(withDuration: duration) {
+        UIView.animate(withDuration: duration, animations: {
             self.toolbarBottomConstraint.constant = self.toolbarBottomConstraintInitialValue
             self.postToolbar.isHidden = false
             self.view.layoutIfNeeded()
-        }
+        })
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        let info = notification.userInfo!
+        let info = (notification as NSNotification).userInfo!
         let keyboardFrame: CGRect = (info[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        let duration = notification.userInfo![UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
+        let duration = (notification as NSNotification).userInfo![UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
         
         UIView.animate(withDuration: duration) {
             self.toolbarBottomConstraint.constant = keyboardFrame.size.height
@@ -72,8 +76,11 @@ class PostViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        postTextView.text = ""
-        postTextView.textColor = UIColor.black
+        
+        if(postTextView.textColor == UIColor.lightGray) {
+            postTextView.text = ""
+            postTextView.textColor = UIColor.black
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -87,9 +94,9 @@ class PostViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
         var attributedString = NSMutableAttributedString()
         
         if(self.postTextView.text.count > 0) {
-            attributedString = NSMutableAttributedString(string: self.postTextView.text)
+            attributedString = NSMutableAttributedString(string: self.postTextView.text+"\n\n")
         } else {
-            attributedString = NSMutableAttributedString(string: "text...\n")
+            attributedString = NSMutableAttributedString(string: "text...\n\n")
         }
         
         let textAttachment = NSTextAttachment()

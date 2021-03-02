@@ -748,7 +748,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="About" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bPc-eF-CR5">
-                                        <rect key="frame" x="339" y="201" width="67" height="34"/>
+                                        <rect key="frame" x="8" y="201" width="398" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="P9B-Ca-NNy"/>
                                         </constraints>
@@ -762,7 +762,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bGH-PZ-Deu">
-                                        <rect key="frame" x="287.5" y="286" width="170" height="32"/>
+                                        <rect key="frame" x="122" y="286" width="170" height="32"/>
                                         <segments>
                                             <segment title="Posts"/>
                                             <segment title="Media"/>
@@ -802,6 +802,9 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YS7-6q-kfC">
                                         <rect key="frame" x="23" y="238" width="65" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="65" id="fPY-7C-kGH"/>
+                                        </constraints>
                                         <state key="normal" title="Following"/>
                                         <connections>
                                             <segue destination="SnM-el-t7s" kind="presentation" id="tor-5U-UAc"/>
@@ -809,6 +812,9 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z7Y-6A-w80">
                                         <rect key="frame" x="175" y="238" width="65" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="65" id="roC-pJ-sBJ"/>
+                                        </constraints>
                                         <state key="normal" title="Followers"/>
                                         <connections>
                                             <segue destination="4WO-fJ-JCn" kind="presentation" id="FY6-Tz-gjI"/>
@@ -818,10 +824,12 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="GEc-Q9-frX" firstAttribute="centerX" secondItem="w4J-dK-0KZ" secondAttribute="centerX" id="1gG-av-vPq"/>
+                                    <constraint firstItem="u3q-cs-p8T" firstAttribute="leading" secondItem="z7Y-6A-w80" secondAttribute="trailing" constant="8.5" id="4mO-ms-XyA"/>
                                     <constraint firstAttribute="trailing" secondItem="iWD-Sy-elp" secondAttribute="trailing" constant="8" id="CEZ-np-3ud"/>
                                     <constraint firstItem="z7Y-6A-w80" firstAttribute="top" secondItem="ew6-wO-2Eu" secondAttribute="bottom" constant="105" id="Gfr-zH-0Zf"/>
                                     <constraint firstItem="bGH-PZ-Deu" firstAttribute="top" secondItem="bPc-eF-CR5" secondAttribute="bottom" constant="51" id="H70-rs-Ygg"/>
                                     <constraint firstItem="EdH-6c-Cqh" firstAttribute="leading" secondItem="bQM-Jt-WoS" secondAttribute="leading" id="MKB-7s-4wH"/>
+                                    <constraint firstItem="bPc-eF-CR5" firstAttribute="leading" secondItem="bQM-Jt-WoS" secondAttribute="leading" constant="8" id="MoA-oe-Ii2"/>
                                     <constraint firstItem="mKx-Kt-RGB" firstAttribute="centerX" secondItem="ew6-wO-2Eu" secondAttribute="centerX" id="QKQ-An-Q0C"/>
                                     <constraint firstItem="ew6-wO-2Eu" firstAttribute="leading" secondItem="bQM-Jt-WoS" secondAttribute="leading" constant="8" id="QtR-HO-xdg"/>
                                     <constraint firstItem="YS7-6q-kfC" firstAttribute="leading" secondItem="bQM-Jt-WoS" secondAttribute="leading" constant="23" id="SzM-e0-gNo"/>
@@ -844,7 +852,6 @@
                                     <constraint firstAttribute="trailing" secondItem="EdH-6c-Cqh" secondAttribute="trailing" id="rAQ-6J-Kta"/>
                                     <constraint firstItem="bPc-eF-CR5" firstAttribute="top" secondItem="GEc-Q9-frX" secondAttribute="bottom" constant="16" id="rRI-Qq-OUH"/>
                                     <constraint firstItem="v4i-zl-AmV" firstAttribute="leading" secondItem="bQM-Jt-WoS" secondAttribute="leading" id="s5r-PE-Rtb"/>
-                                    <constraint firstItem="u3q-cs-p8T" firstAttribute="leading" secondItem="z7Y-6A-w80" secondAttribute="trailing" constant="8.5" id="tRH-Wl-fxn"/>
                                     <constraint firstItem="EdH-6c-Cqh" firstAttribute="top" secondItem="bGH-PZ-Deu" secondAttribute="bottom" constant="8" symbolic="YES" id="uHR-Vs-dBd"/>
                                     <constraint firstItem="Ol2-bg-7hN" firstAttribute="leading" secondItem="bQM-Jt-WoS" secondAttribute="leading" id="usC-Rn-dYE"/>
                                     <constraint firstItem="Ol2-bg-7hN" firstAttribute="top" secondItem="bGH-PZ-Deu" secondAttribute="bottom" constant="8" symbolic="YES" id="wzO-8k-iuN"/>
