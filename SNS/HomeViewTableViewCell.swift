@@ -15,6 +15,9 @@ class HomeViewTableViewCell: UITableViewCell {
     @IBOutlet weak var post: UITextView!
     @IBOutlet weak var postImage: UIImageView!
     @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var reply: UIButton!
+    @IBOutlet weak var repost: UIButton!
+    @IBOutlet weak var like: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

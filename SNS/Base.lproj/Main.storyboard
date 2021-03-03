@@ -240,10 +240,10 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="dl2-zE-imh">
+                                                <stackView opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="dl2-zE-imh">
                                                     <rect key="frame" x="76" y="172" width="320" height="31"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="InX-kR-AMo">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="InX-kR-AMo">
                                                             <rect key="frame" x="0.0" y="0.0" width="90" height="31"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="Vi7-ci-611"/>
@@ -251,11 +251,11 @@
                                                             </constraints>
                                                             <state key="normal" image="arrowshape.turn.up.left.fill" catalog="system"/>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nzt-mQ-x1n">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nzt-mQ-x1n">
                                                             <rect key="frame" x="115" y="0.0" width="90" height="31"/>
                                                             <state key="normal" image="arrow.2.squarepath" catalog="system"/>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V1Y-ku-SJw">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V1Y-ku-SJw">
                                                             <rect key="frame" x="230" y="0.0" width="90" height="31"/>
                                                             <state key="normal" image="heart" catalog="system"/>
                                                         </button>
@@ -292,11 +292,14 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="imageViewHeightConstraint" destination="iu7-Ia-Wh6" id="kJl-KY-Zpz"/>
+                                            <outlet property="like" destination="V1Y-ku-SJw" id="vmr-oh-Hfo"/>
                                             <outlet property="name" destination="TQC-UZ-ImL" id="ndp-Ya-ohr"/>
                                             <outlet property="nickname" destination="SDe-aA-LWO" id="T6a-9X-naq"/>
                                             <outlet property="post" destination="jvx-ov-ntI" id="iRy-zr-n2O"/>
                                             <outlet property="postImage" destination="QDF-l0-TVG" id="VhV-x5-iFm"/>
                                             <outlet property="profilePic" destination="btB-v2-xnB" id="H8g-WN-JdG"/>
+                                            <outlet property="reply" destination="InX-kR-AMo" id="gvd-TO-jj3"/>
+                                            <outlet property="repost" destination="Nzt-mQ-x1n" id="hDE-cJ-QkZ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

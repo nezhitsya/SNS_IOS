@@ -16,6 +16,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var post: [NSDictionary?] = []
     var userData: AnyObject? = .none
     var defaultImgaeViewHeightConstraint: CGFloat = 70.0
+    var listFollowers = [NSDictionary?]()
+    var listFollowing = [NSDictionary?]()
     
     @IBOutlet weak var homeTableView: UITableView!
     @IBOutlet weak var activeLoading: UIActivityIndicatorView!
@@ -34,18 +36,41 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
             self.databaseRef.child("posts").child(userUid!).observe(.childAdded, with: { (snapshot: DataSnapshot) in
 
-                if snapshot.childrenCount > 0 {
-                    self.post.append(snapshot.value as? NSDictionary)
-                    self.homeTableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: UITableView.RowAnimation.automatic)
-                    self.activeLoading.stopAnimating()
-                }
+//                if snapshot.childrenCount > 0 {
+//                    self.post.append(snapshot.value as? NSDictionary)
+//                    self.homeTableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: UITableView.RowAnimation.automatic)
+//                    self.activeLoading.stopAnimating()
+//                }
+                let key = snapshot.key
+                let snapshot = snapshot.value as? NSDictionary
+                snapshot?.setValue(key, forKey: "key")
+                
+                self.post.append(snapshot!)
+                self.homeTableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: UITableView.RowAnimation.automatic)
+                self.activeLoading.stopAnimating()
             }) {(error) in
                 print(error.localizedDescription)
             }
         }
 
+        Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(stopAnimating), userInfo: nil, repeats: false)
+        
         self.homeTableView.rowHeight = UITableView.automaticDimension
         self.homeTableView.estimatedRowHeight = 215
+        
+        self.databaseRef.child("following").child(userUid!).observe(.childAdded, with: { (snapshot) in
+            
+            let snapshot = snapshot.value as? NSDictionary
+            self.listFollowing.append(snapshot)
+        })
+        
+        self.databaseRef.child("followers").child(userUid!).observe(.childAdded, with: { (snapshot) in
+            
+            let key = snapshot.key
+            let snapshot = snapshot.value as? NSDictionary
+            snapshot?.setValue(key, forKey: "uid")
+            self.listFollowers.append(snapshot)
+        })
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -61,9 +86,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell: HomeViewTableViewCell = tableView.dequeueReusableCell(withIdentifier: "HomeViewTableViewCell", for: indexPath) as! HomeViewTableViewCell
         let posts = post[(self.post.count - 1) - (indexPath.row)]!["text"] as! String
         let imageTap = UIGestureRecognizer(target: self, action: #selector(self.didTapImage))
+        let repostTap = UITapGestureRecognizer(target: self, action: #selector(self.didTapRepost))
+        let replyTap = UITapGestureRecognizer(target: self, action: #selector(self.didTapReply))
+        let likeTap = UITapGestureRecognizer(target: self, action: #selector(self.didTapLike))
         
         cell.postImage.addGestureRecognizer(imageTap)
-        cell.addGestureRecognizer(imageTap)
+        cell.repost.addGestureRecognizer(repostTap)
+        cell.reply.addGestureRecognizer(replyTap)
+        cell.like.addGestureRecognizer(likeTap)
         
         if(post[(self.post.count - 1) - (indexPath.row)]!["picture"] != nil) {
             cell.postImage.isHidden = false
@@ -87,6 +117,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
+    @objc open func stopAnimating() {
+        self.activeLoading.stopAnimating()
+    }
+    
     @objc func didTapImage(sender: UITapGestureRecognizer) {
         let imageView = sender.view as! UIImageView
         let newImageView = UIImageView(image: imageView.image)
@@ -104,6 +138,21 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @objc func dismissFullScreenImage(sender: UITapGestureRecognizer) {
         sender.view?.removeFromSuperview()
+    }
+    
+    @objc func didTapRepost(sender: UITapGestureRecognizer) {
+        
+    }
+    
+    @objc func didTapReply(sender: UITapGestureRecognizer) {
+        print("Tap Comment!")
+    }
+    
+    @objc func didTapLike(sender: UITapGestureRecognizer) {
+        let tapLocation = sender.location(in: self.homeTableView)
+        let indexPath = self.homeTableView.indexPathForRow(at: tapLocation)! as IndexPath
+        let post = self.post[(self.post.count - 1) - indexPath.row]
+        var childUpdates = [String: Any]()
     }
 
     /*
