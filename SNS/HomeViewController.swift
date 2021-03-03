@@ -10,7 +10,7 @@ import FirebaseAuth
 import FirebaseDatabase
 import SDWebImage
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
     
     var databaseRef = Database.database().reference()
     var post: [NSDictionary?] = []
