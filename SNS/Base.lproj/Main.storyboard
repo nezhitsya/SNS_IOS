@@ -881,6 +881,8 @@
                         <outlet property="mediaContainer" destination="v4i-zl-AmV" id="pfG-rd-Nah"/>
                         <outlet property="name" destination="GEc-Q9-frX" id="gFP-Bc-Z7n"/>
                         <outlet property="nickname" destination="w4J-dK-0KZ" id="7xR-Ja-6cO"/>
+                        <outlet property="numberFollowers" destination="u3q-cs-p8T" id="I2Z-Nx-tWA"/>
+                        <outlet property="numberFollowing" destination="LtA-xO-bXk" id="PF2-hr-AxR"/>
                         <outlet property="postContainer" destination="Ol2-bg-7hN" id="0cS-Bz-7AA"/>
                         <outlet property="profilePicture" destination="ew6-wO-2Eu" id="CiC-gh-of4"/>
                     </connections>

@@ -20,6 +20,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var about: UITextField!
     @IBOutlet weak var imageLoader: UIActivityIndicatorView!
+    @IBOutlet weak var numberFollowing: UILabel!
+    @IBOutlet weak var numberFollowers: UILabel!
     
     var databaseRef = Database.database().reference()
     var storageRef = Storage.storage().reference()
@@ -51,6 +53,24 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             }
             self.imageLoader.stopAnimating()
         }
+        
+        self.databaseRef.child("User").child(userUid!).child("followingCount").observe(.value, with: { (snapshot) in
+
+            if(snapshot.exists()) {
+                self.numberFollowing.text = "\(snapshot.value!)"
+            } else {
+                self.numberFollowing.text = "0"
+            }
+        })
+        
+        self.databaseRef.child("User").child(userUid!).child("followersCount").observe(.value, with: { (snapshot) in
+
+            if(snapshot.exists()) {
+                self.numberFollowers.text = "\(snapshot.value!)"
+            } else {
+                self.numberFollowers.text = "0"
+            }
+        })
     }
     
     @IBAction func didTapProfilePicture(_ sender: UITapGestureRecognizer) {
