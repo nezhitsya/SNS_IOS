@@ -261,8 +261,8 @@
                                                         </button>
                                                     </subviews>
                                                 </stackView>
-                                                <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="QDF-l0-TVG">
-                                                    <rect key="frame" x="77" y="94" width="318" height="70"/>
+                                                <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="QDF-l0-TVG">
+                                                    <rect key="frame" x="77" y="94" width="317" height="70"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="70" id="iu7-Ia-Wh6"/>
                                                     </constraints>
@@ -270,8 +270,10 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="TQC-UZ-ImL" firstAttribute="top" secondItem="SDe-aA-LWO" secondAttribute="top" id="8aR-oq-YcK"/>
+                                                <constraint firstItem="QDF-l0-TVG" firstAttribute="leading" secondItem="jmK-ct-Je7" secondAttribute="leading" constant="77" id="CNO-hQ-lUM"/>
                                                 <constraint firstItem="TQC-UZ-ImL" firstAttribute="top" secondItem="SDe-aA-LWO" secondAttribute="top" id="ETD-2o-Sa4"/>
                                                 <constraint firstItem="TQC-UZ-ImL" firstAttribute="leading" secondItem="SDe-aA-LWO" secondAttribute="trailing" constant="18" id="Gu7-Ml-DdT"/>
+                                                <constraint firstAttribute="trailing" secondItem="QDF-l0-TVG" secondAttribute="trailing" constant="20" symbolic="YES" id="OXC-6e-Cxr"/>
                                                 <constraint firstItem="TQC-UZ-ImL" firstAttribute="centerY" secondItem="SDe-aA-LWO" secondAttribute="centerY" id="Oc9-se-WPM"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="TQC-UZ-ImL" secondAttribute="trailing" constant="20" symbolic="YES" id="RqB-Id-ans"/>
                                                 <constraint firstAttribute="trailing" secondItem="jvx-ov-ntI" secondAttribute="trailing" constant="20" symbolic="YES" id="SGi-i1-KXl"/>
@@ -279,10 +281,8 @@
                                                 <constraint firstItem="btB-v2-xnB" firstAttribute="top" secondItem="jmK-ct-Je7" secondAttribute="top" constant="8" id="U58-h5-Wnj"/>
                                                 <constraint firstItem="SDe-aA-LWO" firstAttribute="leading" secondItem="btB-v2-xnB" secondAttribute="trailing" constant="22" id="UJq-0H-bTf"/>
                                                 <constraint firstItem="dl2-zE-imh" firstAttribute="leading" secondItem="jvx-ov-ntI" secondAttribute="leading" id="ZqB-iG-yHZ"/>
-                                                <constraint firstAttribute="trailing" secondItem="QDF-l0-TVG" secondAttribute="trailing" constant="20" symbolic="YES" id="aRs-OI-UqO"/>
                                                 <constraint firstItem="jvx-ov-ntI" firstAttribute="top" secondItem="jmK-ct-Je7" secondAttribute="top" constant="37" id="arT-Z5-OMX"/>
                                                 <constraint firstItem="jvx-ov-ntI" firstAttribute="leading" secondItem="jmK-ct-Je7" secondAttribute="leading" constant="76" id="fKI-Fj-OyW"/>
-                                                <constraint firstItem="QDF-l0-TVG" firstAttribute="leading" secondItem="jmK-ct-Je7" secondAttribute="leading" constant="76" id="fXV-dv-AAB"/>
                                                 <constraint firstItem="SDe-aA-LWO" firstAttribute="top" secondItem="btB-v2-xnB" secondAttribute="top" id="hEv-bH-Foy"/>
                                                 <constraint firstAttribute="bottom" secondItem="dl2-zE-imh" secondAttribute="bottom" constant="11" id="nC2-3g-xvS"/>
                                                 <constraint firstItem="dl2-zE-imh" firstAttribute="top" secondItem="QDF-l0-TVG" secondAttribute="bottom" constant="8" symbolic="YES" id="vvL-wC-3fF"/>
