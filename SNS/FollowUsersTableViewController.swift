@@ -16,6 +16,7 @@ class FollowUsersTableViewController: UITableViewController, UISearchResultsUpda
     
     var user: User?
     var usersArray = [NSDictionary?]()
+    var otherUser: AnyObject? = .none
     var filteredUsers = [NSDictionary?]()
     var testArray = [NSDictionary?]()
     var databaseRef = Database.database().reference()
@@ -69,15 +70,32 @@ class FollowUsersTableViewController: UITableViewController, UISearchResultsUpda
         return cell
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "ShowUser" {
-//            if let indexPath = tableView.indexPathForSelectedRow {
-//                let user = usersArray[indexPath.row]
-//                let controller = segue.destination as? UserProfileViewController
-//                controller?.otherUser = user
-//            }
+    public override func tableView(_ tableVew: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+
+        let follow = UITableViewRowAction(style: .default, title: "Follow") { (action, indexPath) in
+            self.Follow()
+        }
+        follow.backgroundColor = UIColor.systemGray
+        return [follow]
+    }
+    
+//    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+//        return true
+//    }
+//
+//    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+//        return .delete
+//    }
+//
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//
 //        }
 //    }
+    
+    func Follow() {
+        print("follow")
+    }
     
     func updateSearchResults(for searchController: UISearchController) {
         
