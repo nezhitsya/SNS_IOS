@@ -17,6 +17,7 @@ class FollowUsersTableViewController: UITableViewController, UISearchResultsUpda
     var user: User?
     var usersArray = [NSDictionary?]()
     var otherUser: AnyObject? = .none
+    var loginUser: AnyObject? = .none
     var filteredUsers = [NSDictionary?]()
     var testArray = [NSDictionary?]()
     var databaseRef = Database.database().reference()
@@ -34,10 +35,20 @@ class FollowUsersTableViewController: UITableViewController, UISearchResultsUpda
             let key = snapshot.key
             let snapshot = snapshot.value as? NSDictionary
             
+            self.loginUser = snapshot
+            self.loginUser?.setValue(self.user?.uid, forKey: "uid")
+            
             if(key != self.user?.uid) {
                 self.usersArray.append(snapshot)
                 self.followUsersTableView.insertRows(at: [IndexPath(row: self.usersArray.count - 1, section: 0)], with: UITableView.RowAnimation.automatic)
             }
+        })
+        
+        databaseRef.child("User").child(self.otherUser?["uid"] as! String).observe(.value, with: { (snapshot) in
+            
+            let uid = self.otherUser!["uid"] as! String
+            self.otherUser = snapshot.value as? NSDictionary
+            self.otherUser?.setValue(uid, forKey: "uid")
         })
     }
 
@@ -94,7 +105,14 @@ class FollowUsersTableViewController: UITableViewController, UISearchResultsUpda
 //    }
     
     func Follow() {
-        print("follow")
+        let followersRef = "followers/\(self.otherUser?["uid"] as! String)/\(self.loginUser!["uid"] as! String)"
+        let followingRef = "following/" + (self.loginUser!["uid"] as! String) + "/" + (self.otherUser?["uid"] as! String)
+        
+        let followersData = ["nickname": self.loginUser!["nickname"] as! String, "name": self.loginUser!["name"] as! String]
+        let followingData = ["nickname": self.loginUser!["nickname"] as! String, "name": self.loginUser!["name"] as! String]
+        
+        let childUpdates = [followersRef: followersData, followingRef: followingData]
+        databaseRef.updateChildValues(childUpdates)
     }
     
     func updateSearchResults(for searchController: UISearchController) {
