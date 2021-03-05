@@ -31,12 +31,9 @@ class FollowUsersTableViewController: UITableViewController, UISearchResultsUpda
         tableView.tableHeaderView = searchController.searchBar
         
         databaseRef.child("User").queryOrdered(byChild: "nickname").observe(.childAdded, with: { (snapshot) in
-            
+
             let key = snapshot.key
             let snapshot = snapshot.value as? NSDictionary
-            
-            self.loginUser = snapshot
-            self.loginUser?.setValue(self.user?.uid, forKey: "uid")
             
             if(key != self.user?.uid) {
                 self.usersArray.append(snapshot)
@@ -44,11 +41,12 @@ class FollowUsersTableViewController: UITableViewController, UISearchResultsUpda
             }
         })
         
-        databaseRef.child("User").child(self.otherUser?["uid"] as! String).observe(.value, with: { (snapshot) in
-            
-            let uid = self.otherUser!["uid"] as! String
-            self.otherUser = snapshot.value as? NSDictionary
-            self.otherUser?.setValue(uid, forKey: "uid")
+        let userUid = Auth.auth().currentUser?.uid
+        
+        databaseRef.child("User").child(userUid!).observeSingleEvent(of: .value, with: { (snapshot) in
+
+            self.loginUser = snapshot.value as? NSDictionary
+            self.loginUser?.setValue(userUid!, forKey: "uid")
         })
     }
 
@@ -84,7 +82,18 @@ class FollowUsersTableViewController: UITableViewController, UISearchResultsUpda
     public override func tableView(_ tableVew: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
 
         let follow = UITableViewRowAction(style: .default, title: "Follow") { (action, indexPath) in
-            self.Follow()
+            
+            self.otherUser = self.usersArray[indexPath.row]?["nickname"] as AnyObject?
+            
+            let userUid = Auth.auth().currentUser?.uid
+            let followersRef = "followers/\(self.otherUser as! String)/\(userUid!)"
+            let followingRef = "following/" + (userUid!) + "/" + (self.otherUser as! String)
+            
+            let followersData = ["nickname": self.loginUser!["nickname"] as! String, "name": self.loginUser!["name"] as! String]
+            let followingData = ["nickname": self.loginUser!["nickname"] as! String, "name": self.loginUser!["name"] as! String]
+            
+            let childUpdates = [followersRef: followersData, followingRef: followingData]
+            self.databaseRef.updateChildValues(childUpdates)
         }
         follow.backgroundColor = UIColor.systemGray
         return [follow]
@@ -103,17 +112,6 @@ class FollowUsersTableViewController: UITableViewController, UISearchResultsUpda
 //
 //        }
 //    }
-    
-    func Follow() {
-        let followersRef = "followers/\(self.otherUser?["uid"] as! String)/\(self.loginUser!["uid"] as! String)"
-        let followingRef = "following/" + (self.loginUser!["uid"] as! String) + "/" + (self.otherUser?["uid"] as! String)
-        
-        let followersData = ["nickname": self.loginUser!["nickname"] as! String, "name": self.loginUser!["name"] as! String]
-        let followingData = ["nickname": self.loginUser!["nickname"] as! String, "name": self.loginUser!["name"] as! String]
-        
-        let childUpdates = [followersRef: followersData, followingRef: followingData]
-        databaseRef.updateChildValues(childUpdates)
-    }
     
     func updateSearchResults(for searchController: UISearchController) {
         
