@@ -27,14 +27,14 @@
 
 ### 메인화면 및 게시물
 
-<img width = "400" alt="1" src="https://user-images.githubusercontent.com/60697742/102070087-fc341480-3e41-11eb-8881-840e2b9a059c.png">
+<img width="200" alt="1" src="https://user-images.githubusercontent.com/60697742/110194360-8c02c100-7e7b-11eb-9c65-2bfb435432c5.png">
 
- <br>
+<br>
 
 ### 프로필 화면
 
 <div style="width:200px; height:150px; margin:auto">
-  <img width="200" alt="1" src="">
+  <img width="200" alt="1" src="https://user-images.githubusercontent.com/60697742/110194367-98871980-7e7b-11eb-901c-6bf80e805370.png">
   <img width="200" alt="1" src="https://user-images.githubusercontent.com/60697742/110194228-d9caf980-7e7a-11eb-8a1e-5aa70bdca7cf.png">
   <img width="200" alt="1" src="https://user-images.githubusercontent.com/60697742/110194247-f0715080-7e7a-11eb-8f39-8195778b9fdd.png">
   <img width="200" alt="1" src="https://user-images.githubusercontent.com/60697742/110194252-01ba5d00-7e7b-11eb-8ee5-d7af732424df.png">
@@ -45,21 +45,16 @@
 ### 검색 화면
 
 유저 검색 및 이미지 검색 기능 <br>
-강아지의 두 눈과 코를 연결한 삼각존, 견종, 모색을 기반으로 닮은 강아지를 제안
+왼쪽으로 슬라이드하여 follow 버튼 이용 <br>
 
-<img width = "400" alt="1" src="https://user-images.githubusercontent.com/60697742/102070145-10781180-3e42-11eb-80c1-894b403e0907.png">
- 
- <br>
- 
-### 채팅 화면
-
-<img width = "400" alt="1" src="https://user-images.githubusercontent.com/60697742/102070157-12da6b80-3e42-11eb-93c8-3487ff43a250.png">
+<div style="width:200px; height:150px; margin:auto">
+  <img width="200" alt="1" src="https://user-images.githubusercontent.com/60697742/110194368-99b84680-7e7b-11eb-9db2-54016c7c86e8.png">
+  <img width="200" alt="1" src="https://user-images.githubusercontent.com/60697742/110194368-99b84680-7e7b-11eb-9db2-54016c7c86e8.png">
+</div>
 
  <br>
+
 
 ### 스토리 기능
 
-<div style="width:200px; height:150px; margin:auto">
-  <img width="250" alt="1" src="https://user-images.githubusercontent.com/60697742/102070235-2dace000-3e42-11eb-81ef-2b6eb56a29f8.png">
-  <img width="200" alt="1" src="https://user-images.githubusercontent.com/60697742/102070230-2ab1ef80-3e42-11eb-9aa8-ef62811adda7.png">
-</div>
+<img width="200" alt="1" src="https://user-images.githubusercontent.com/60697742/110194380-a6d53580-7e7b-11eb-8b81-61a098cbc491.png">
