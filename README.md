@@ -49,7 +49,7 @@
 
 <div style="width:200px; height:150px; margin:auto">
   <img width="200" alt="1" src="https://user-images.githubusercontent.com/60697742/110194368-99b84680-7e7b-11eb-9db2-54016c7c86e8.png">
-  <img width="200" alt="1" src="https://user-images.githubusercontent.com/60697742/110194368-99b84680-7e7b-11eb-9db2-54016c7c86e8.png">
+  <img width="200" alt="1" src="https://user-images.githubusercontent.com/60697742/110194570-2e22a900-7e7c-11eb-9e7f-8cd38bf547a6.png">
 </div>
 
  <br>
