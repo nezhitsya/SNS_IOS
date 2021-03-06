@@ -33,6 +33,10 @@
 
 ### 프로필 화면
 
+Picture : 현재 내 프로파일 사진 보기 <br>
+Photos : 현재 기기 내 사진 목록 <br>
+Camera : 카메라 <br>
+
 <div style="width:200px; height:150px; margin:auto">
   <img width="200" alt="1" src="https://user-images.githubusercontent.com/60697742/110194367-98871980-7e7b-11eb-901c-6bf80e805370.png">
   <img width="200" alt="1" src="https://user-images.githubusercontent.com/60697742/110194228-d9caf980-7e7a-11eb-8a1e-5aa70bdca7cf.png">
@@ -55,6 +59,6 @@
  <br>
 
 
-### 스토리 기능
+### 포스트 작성 화면
 
 <img width="200" alt="1" src="https://user-images.githubusercontent.com/60697742/110194380-a6d53580-7e7b-11eb-8b81-61a098cbc491.png">
