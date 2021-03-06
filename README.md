@@ -15,17 +15,15 @@
 
  <br>
 
-### 어플 소개화면
-
-<img width="800" alt="1" src="https://user-images.githubusercontent.com/60697742/102069976-d575de00-3e41-11eb-8b9b-d945c1d18201.png">
-
- <br>
-
 ### 로그인 및 회원가입
 
-<img width = "400" alt="1" src="https://user-images.githubusercontent.com/60697742/102070022-e6265400-3e41-11eb-8d8b-5361ec8e7ba0.png">
+<div style="width:200px; height:150px; margin:auto">
+  <img width="200" alt="1" src="https://user-images.githubusercontent.com/60697742/110194215-bbfd9480-7e7a-11eb-8a84-3794bb62aa11.png">
+  <img width="200" alt="1" src="https://user-images.githubusercontent.com/60697742/110194217-c750c000-7e7a-11eb-8753-ced7a558c446.png">
+  <img width="200" alt="1" src="https://user-images.githubusercontent.com/60697742/110194225-d6d00900-7e7a-11eb-8996-74a28a148961.png">
+</div>
 
- <br>
+<br>
 
 ### 메인화면 및 게시물
 
@@ -35,7 +33,12 @@
 
 ### 프로필 화면
 
-<img width = "400" alt="1" src="https://user-images.githubusercontent.com/60697742/102070095-00f8c880-3e42-11eb-8770-b3dc8655cb24.png">
+<div style="width:200px; height:150px; margin:auto">
+  <img width="200" alt="1" src="">
+  <img width="200" alt="1" src="https://user-images.githubusercontent.com/60697742/110194228-d9caf980-7e7a-11eb-8a1e-5aa70bdca7cf.png">
+  <img width="200" alt="1" src="https://user-images.githubusercontent.com/60697742/110194247-f0715080-7e7a-11eb-8f39-8195778b9fdd.png">
+  <img width="200" alt="1" src="https://user-images.githubusercontent.com/60697742/110194252-01ba5d00-7e7b-11eb-8ee5-d7af732424df.png">
+</div>
 
  <br>
 
