@@ -61,11 +61,11 @@ Camera : 카메라 <br>
 
 ### 포스트 작성 화면
 
-<img width="200" alt="1" src="https://user-images.githubusercontent.com/60697742/110194380-a6d53580-7e7b-11eb-8b81-61a098cbc491.png">정말
+<img width="200" alt="1" src="https://user-images.githubusercontent.com/60697742/110194380-a6d53580-7e7b-11eb-8b81-61a098cbc491.png">
 
 <br>
 
 ???
-홈 화면 클릭 모든 설정을 했음에도 안눌림...
+홈 화면 클릭
 follow 기능 및 화면 수정 필요
 외에 자잘한 오류 수정
