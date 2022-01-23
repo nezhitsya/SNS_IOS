@@ -89,6 +89,8 @@
 		0B52DA0925DBA40000F48EFE /* SNS */ = {
 			isa = PBXGroup;
 			children = (
+				0B57AC9B279D5E1300EDC19D /* controllers */,
+				0B57AC9A279D5E0C00EDC19D /* utilities */,
 				0B629B3625DDF43400B80A27 /* GoogleService-Info.plist */,
 				0B52DA0A25DBA40000F48EFE /* AppDelegate.swift */,
 				0B52DA0C25DBA40000F48EFE /* SceneDelegate.swift */,
@@ -97,20 +99,42 @@
 				0B52DA1825DBA40100F48EFE /* LaunchScreen.storyboard */,
 				0B52DA1B25DBA40100F48EFE /* Info.plist */,
 				0B52DA1325DBA40000F48EFE /* SNS.xcdatamodeld */,
-				0B74FA5E25DCA21C00D72DB9 /* LoginViewController.swift */,
-				0B74FA6125DCA9DA00D72DB9 /* SignUpViewController.swift */,
+			);
+			path = SNS;
+			sourceTree = "<group>";
+		};
+		0B57AC9A279D5E0C00EDC19D /* utilities */ = {
+			isa = PBXGroup;
+			children = (
 				0B74FA6525DCAE7800D72DB9 /* SignUpTextField.swift */,
-				0B629B5D25DE00CE00B80A27 /* HandleViewController.swift */,
-				0B19C76F25E0BD7300A0BCFC /* HomeViewController.swift */,
-				0B19C77225E0CF9F00A0BCFC /* HomeViewTableViewCell.swift */,
-				0B19C77525E0DA7F00A0BCFC /* PostViewController.swift */,
+			);
+			path = utilities;
+			sourceTree = "<group>";
+		};
+		0B57AC9B279D5E1300EDC19D /* controllers */ = {
+			isa = PBXGroup;
+			children = (
 				0B228E0325E332CA0085C11A /* ViewController.swift */,
+				0B74FA6125DCA9DA00D72DB9 /* SignUpViewController.swift */,
+				0B629B5D25DE00CE00B80A27 /* HandleViewController.swift */,
 				0BA989EA25E481B600E3EB25 /* ProfileViewController.swift */,
+				0B19C77525E0DA7F00A0BCFC /* PostViewController.swift */,
 				0B67B98E25E8824E0017FE66 /* FollowUsersTableViewController.swift */,
 				0BB168B625EBCAD0006F2173 /* ShowFollowersTableViewController.swift */,
 				0BB168B925EBCADE006F2173 /* ShowFollowingTableViewController.swift */,
+				0B74FA5E25DCA21C00D72DB9 /* LoginViewController.swift */,
+				0B57AC9C279D5E1B00EDC19D /* home */,
 			);
-			path = SNS;
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		0B57AC9C279D5E1B00EDC19D /* home */ = {
+			isa = PBXGroup;
+			children = (
+				0B19C76F25E0BD7300A0BCFC /* HomeViewController.swift */,
+				0B19C77225E0CF9F00A0BCFC /* HomeViewTableViewCell.swift */,
+			);
+			path = home;
 			sourceTree = "<group>";
 		};
 		3F1B0C5CD454774F15A3BEF6 /* Frameworks */ = {

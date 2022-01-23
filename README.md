@@ -1,10 +1,16 @@
 # SNS_IOS
 
+## 코드 회고
+
+- MVC 패턴
+- Firebase를 이용한 데이터 관리
+- CocoaPods
+
 ## Social Network Sevice on iOS
 
 <br>
 
- -  소셜기능 : 사진 및 글 포스팅, 좋아요, 팔로우, 유저검색 <br>
+- 소셜기능 : 사진 및 글 포스팅, 좋아요, 팔로우, 유저검색 <br>
 
 ### 로고
 
@@ -58,14 +64,8 @@ Camera : 카메라 <br>
 
  <br>
 
-
 ### 포스트 작성 화면
 
 <img width="200" alt="1" src="https://user-images.githubusercontent.com/60697742/110194380-a6d53580-7e7b-11eb-8b81-61a098cbc491.png">
 
 <br>
-
-???
-홈 화면 클릭
-follow 기능 및 화면 수정 필요
-외에 자잘한 오류 수정
